@@ -30,15 +30,26 @@
         }
     </style>
     <script async src="https://tally.so/widgets/embed.js"></script>
+
+    <script src="i18n.js" defer></script>
 </head>
-<body>
+<body data-page="404">
+    <div class="lang-switch lang-switch--minimal" role="group" data-i18n-aria="c:aria.lang_group">
+        <button type="button" class="lang-switch__btn lang-switch__btn--flag" data-cwp-lang="sr" aria-label="Srpski" data-i18n-aria="c:aria.lang_switch_sr" title="Srpski">
+            <span class="lang-switch__flag" aria-hidden="true">🇷🇸</span>
+        </button>
+        <button type="button" class="lang-switch__btn lang-switch__btn--flag" data-cwp-lang="en" aria-label="Engleski" data-i18n-aria="c:aria.lang_switch_en" title="Engleski">
+            <span class="lang-switch__flag" aria-hidden="true">🇬🇧</span>
+        </button>
+    </div>
+
     <main class="error-page">
         <div class="error-code">404</div>
-        <h1>Ups! Izgleda da ste se izgubili.</h1>
-        <p class="error-page__lead">
+        <h1 data-i18n="p:h1">Ups! Izgleda da ste se izgubili.</h1>
+        <p class="error-page__lead" data-i18n="p:lead">
             Stranica koju tražite ne postoji ili je premeštena na drugu lokaciju.
         </p>
-        <a href="index.html" class="btn-primary">Vrati se na početnu</a>
+        <a href="index.html" class="btn-primary" data-i18n="p:cta">Vrati se na početnu</a>
     </main>
 </body>
 </html>

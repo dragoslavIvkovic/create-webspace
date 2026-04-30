@@ -1,0 +1,78 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "dropdown": {
+      "web_design": "Web design",
+      "web_shop": "Web shop",
+      "seo": "SEO",
+      "local_seo": "Local SEO",
+      "geo": "GEO optimisation",
+      "hosting": "Hosting",
+      "google_ads": "Google Ads",
+      "google_maps": "Google Maps",
+      "graphic_design": "Graphic design",
+      "digital_menu": "Digital menu"
+    },
+    "footer": {
+      "lead": "A creative digital agency focused on high-end web platforms, modern design, and advanced SEO.",
+      "copyright": "© 2024 CreateWebPlace. All rights reserved.",
+      "nav_heading": "Navigation",
+      "services_heading": "Our services",
+      "follow_heading": "Follow us",
+      "shops": "Web stores",
+      "copyright_suffix": ". All rights reserved.",
+      "privacy": "Privacy policy",
+      "terms": "Terms of use"
+    },
+    "modal": {
+      "start_talk": "Let’s talk",
+      "choose_how": "Choose how you’d like to reach us.",
+      "call_now": "Call us now",
+      "send_email": "Send an enquiry by email",
+      "back": "← Back",
+      "send_title": "Send a message",
+      "send_lead": "We’re happy to answer your questions.",
+      "close": "Close"
+    },
+    "floating": {
+      "call": "Call",
+      "contact": "Contact"
+    },
+    "aria": {
+      "lang_group": "Language selection",
+      "lang_switch_sr": "Serbian",
+      "lang_switch_en": "English",
+      "scroll_top": "Back to top",
+      "mobile_menu": "Menu"
+    },
+    "mq": {
+      "seo": "SEO",
+      "web": "Website",
+      "apps": "Mobile apps",
+      "commerce": "E‑commerce",
+      "ads": "Google Ads",
+      "localseo": "Local SEO",
+      "hosting": "Hosting",
+      "design": "Web design",
+      "graphic": "Graphic design",
+      "site": "Site",
+      "perf": "Performance",
+      "brand": "Brand",
+      "ux": "UX / UI",
+      "maps": "Google Maps"
+    },
+    "reviews": {
+      "stars_5": "Rating: 5 out of 5 stars",
+      "stars_4": "Rating: 4 out of 5 stars",
+      "badge_reviews_suffix": " reviews",
+      "badge_first": "First review",
+      "badge_review": "review"
+    }
+  }
+}

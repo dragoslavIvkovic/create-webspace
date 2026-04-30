@@ -529,6 +529,9 @@ async function webplaceLoadPage(absoluteUrl, { push, scrollTop } = { push: true,
         document.title = doc.title;
         document.body.id = doc.body.id;
         document.body.className = doc.body.className;
+        const nextPage = doc.body.getAttribute('data-page');
+        if (nextPage) document.body.setAttribute('data-page', nextPage);
+        else document.body.removeAttribute('data-page');
 
         const frag = document.createDocumentFragment();
         for (const child of Array.from(doc.body.children)) {
@@ -545,6 +548,10 @@ async function webplaceLoadPage(absoluteUrl, { push, scrollTop } = { push: true,
         }
 
         await ensureGsapForDoc(doc);
+
+        if (typeof window.initCwpI18n === 'function') {
+            await window.initCwpI18n();
+        }
 
         sessionStorage.setItem('webplace_spa', '1');
         if (push) {
@@ -616,10 +623,19 @@ if (!window.__NEON_SPA) {
     });
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initWebPlacePage, { once: true });
-} else {
+async function webplaceBoot() {
+    if (typeof window.initCwpI18n === 'function') {
+        await window.initCwpI18n();
+    }
     initWebPlacePage();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        void webplaceBoot();
+    }, { once: true });
+} else {
+    void webplaceBoot();
 }
 
 // FAQ Accordion

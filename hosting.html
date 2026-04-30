@@ -11,34 +11,42 @@
     <script async src="https://tally.so/widgets/embed.js"></script>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"></noscript>
 </head>
-<body class="subpage">
+<body class="subpage" data-page="hosting">
     <header id="header" class="scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">Create<span>WebPlace</span></a>
             <nav class="desktop-nav">
                 <ul class="nav-list">
-                    <li><a href="index.html">Početna</a></li>
+                    <li><a href="index.html" data-i18n="c:nav.home">Početna</a></li>
                     <li class="nav-item-dropdown">
-                        <a href="usluge.html" class="active">Usluge</a>
+                        <a href="usluge.html" class="active" data-i18n="c:nav.services">Usluge</a>
                         <div class="dropdown-menu">
-                            <a href="web-dizajn.html">Web Dizajn</a>
-                            <a href="web-shop.html">Web Shop</a>
-                            <a href="seo-optimizacija.html">SEO Optimizacija</a>
-                            <a href="local-seo.html">Local SEO</a>
-                            <a href="geo-optimizacija.html">Geo Optimizacija</a>
-                            <a href="hosting.html">Hosting</a>
-                            <a href="google-ads.html">Google Ads</a>
-                            <a href="google-maps.html">Google Maps</a>
-                            <a href="graficki-dizajn.html">Grafički Dizajn</a>
-                            <a href="digitalni-meni.html">Digitalni Meni</a>
+                            <a href="web-dizajn.html" data-i18n="c:dropdown.web_design">Web Dizajn</a>
+                            <a href="web-shop.html" data-i18n="c:dropdown.web_shop">Web Shop</a>
+                            <a href="seo-optimizacija.html" data-i18n="c:dropdown.seo">SEO Optimizacija</a>
+                            <a href="local-seo.html" data-i18n="c:dropdown.local_seo">Local SEO</a>
+                            <a href="geo-optimizacija.html" data-i18n="c:dropdown.geo">Geo Optimizacija</a>
+                            <a href="hosting.html" data-i18n="c:dropdown.hosting">Hosting</a>
+                            <a href="google-ads.html" data-i18n="c:dropdown.google_ads">Google Ads</a>
+                            <a href="google-maps.html" data-i18n="c:dropdown.google_maps">Google Maps</a>
+                            <a href="graficki-dizajn.html" data-i18n="c:dropdown.graphic_design">Grafički Dizajn</a>
+                            <a href="digitalni-meni.html" data-i18n="c:dropdown.digital_menu">Digitalni Meni</a>
                         </div>
                     </li>
-                    <li><a href="projekti.html">Projekti</a></li>
-                    <li><a href="o-nama.html">O Nama</a></li>
-                    <li><a href="kontakt.html" class="btn-secondary">Kontakt</a></li>
+                    <li><a href="projekti.html" data-i18n="c:nav.projects">Projekti</a></li>
+                    <li><a href="o-nama.html" data-i18n="c:nav.about">O Nama</a></li>
+                    <li><a href="kontakt.html" class="btn-secondary" data-i18n="c:nav.contact">Kontakt</a></li>
                 </ul>
             </nav>
-            <button class="mobile-nav-toggle" aria-label="Menu">
+                        <div class="lang-switch" role="group" data-i18n-aria="c:aria.lang_group">
+                <button type="button" class="lang-switch__btn lang-switch__btn--flag" data-cwp-lang="sr" aria-label="Srpski" data-i18n-aria="c:aria.lang_switch_sr" title="Srpski">
+                    <span class="lang-switch__flag" aria-hidden="true">🇷🇸</span>
+                </button>
+                <button type="button" class="lang-switch__btn lang-switch__btn--flag" data-cwp-lang="en" aria-label="Engleski" data-i18n-aria="c:aria.lang_switch_en" title="Engleski">
+                    <span class="lang-switch__flag" aria-hidden="true">🇬🇧</span>
+                </button>
+            </div>
+<button type="button" class="mobile-nav-toggle" aria-label="Menu" data-i18n-aria="c:aria.mobile_menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -49,39 +57,39 @@
     <!-- Mobile Nav Overlay -->
     <div class="mobile-nav-overlay">
         <ul class="mobile-nav-list">
-            <li><a href="index.html">Početna</a></li>
-            <li><a href="usluge.html">Usluge</a></li>
-            <li><a href="projekti.html">Projekti</a></li>
-            <li><a href="o-nama.html">O Nama</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html" data-i18n="c:nav.home">Početna</a></li>
+            <li><a href="usluge.html" data-i18n="c:nav.services">Usluge</a></li>
+            <li><a href="projekti.html" data-i18n="c:nav.projects">Projekti</a></li>
+            <li><a href="o-nama.html" data-i18n="c:nav.about">O Nama</a></li>
+            <li><a href="kontakt.html" data-i18n="c:nav.contact">Kontakt</a></li>
         </ul>
     </div>
 
     <main>
         <section class="section page-hero">
             <div class="container">
-                <span class="subtitle">Premium Infrastruktura</span>
-                <h1>Munjevit <span class="gradient-text">Hosting</span></h1>
-                <p class="hero-subtext">Vaš sajt zaslužuje najbolje. Obezbeđujemo stabilnost, brzinu i sigurnost na enterprise nivou.</p>
+                <span class="subtitle" data-i18n="p:hero_k">Premium Infrastruktura</span>
+                <h1 data-i18n-html="p:hero_h_html">Munjevit <span class="gradient-text">Hosting</span></h1>
+                <p class="hero-subtext" data-i18n="p:hero_sub">Vaš sajt zaslužuje najbolje. Obezbeđujemo stabilnost, brzinu i sigurnost na enterprise nivou.</p>
             </div>
         </section>
 
         <section class="section">
             <div class="container grid-2">
                 <div class="text-content reveal-up">
-                    <h2>Performanse bez kompromisa</h2>
-                    <p>U svetu gde svaka sekunda učitavanja utiče na prodaju, ne prepuštamo ništa slučaju. Naši serveri su optimizovani specijalno za moderne web aplikacije i e-commerce platforme, koristeći najnovije NVMe diskove i LiteSpeed tehnologiju.</p>
-                    <p>99.9% uptime garancija nije samo obećanje — to je standard.</p>
+                    <h2 data-i18n="p:h2_performance">Performanse bez kompromisa</h2>
+                    <p data-i18n="p:p_perf1">U svetu gde svaka sekunda učitavanja utiče na prodaju, ne prepuštamo ništa slučaju. Naši serveri su optimizovani specijalno za moderne web aplikacije i e-commerce platforme, koristeći najnovije NVMe diskove i LiteSpeed tehnologiju.</p>
+                    <p data-i18n="p:p_perf2">99.9% uptime garancija nije samo obećanje — to je standard.</p>
                 </div>
                 <div class="visual-content reveal-up">
                     <div class="stat-grid-simple">
                         <div class="stat-item">
                             <span class="number" data-target="99">0</span>.9%
-                            <p>Zagarantovan Uptime</p>
+                            <p data-i18n="p:stat_uptime">Zagarantovan Uptime</p>
                         </div>
                         <div class="stat-item">
                             <span class="number" data-target="100">0</span>%
-                            <p>SSD/NVMe Storage</p>
+                            <p data-i18n="p:stat_ssd">SSD/NVMe Storage</p>
                         </div>
                     </div>
                 </div>
@@ -91,26 +99,26 @@
         <section class="section" style="background: var(--card-bg);">
             <div class="container">
                 <div class="section-header center reveal-up">
-                    <span class="subtitle">Sigurnost i Brzina</span>
-                    <h2>Karakteristike Našeg Hostinga</h2>
+                    <span class="subtitle" data-i18n="p:sec_k">Sigurnost i Brzina</span>
+                    <h2 data-i18n="p:sec_h">Karakteristike Našeg Hostinga</h2>
                 </div>
                 <div class="services-grid-new">
                     <div class="sv3-card reveal-up">
                         <div class="sv3-content">
-                            <h3>Dnevni Backup</h3>
-                            <p>Vaši podaci su sigurni. Automatski čuvamo kopije vašeg sajta svakog dana, tako da uvek možete da se vratite korak unazad.</p>
+                            <h3 data-i18n="p:card_backup_h">Dnevni Backup</h3>
+                            <p data-i18n="p:card_backup_p">Vaši podaci su sigurni. Automatski čuvamo kopije vašeg sajta svakog dana, tako da uvek možete da se vratite korak unazad.</p>
                         </div>
                     </div>
                     <div class="sv3-card reveal-up">
                         <div class="sv3-content">
-                            <h3>SSL Sertifikati</h3>
-                            <p>Svi naši hosting paketi uključuju besplatne SSL sertifikate kako bi vaš sajt bio siguran i Google-friendly.</p>
+                            <h3 data-i18n="p:card_ssl_h">SSL Sertifikati</h3>
+                            <p data-i18n="p:card_ssl_p">Svi naši hosting paketi uključuju besplatne SSL sertifikate kako bi vaš sajt bio siguran i Google-friendly.</p>
                         </div>
                     </div>
                     <div class="sv3-card reveal-up">
                         <div class="sv3-content">
-                            <h3>Lokalna Podrška</h3>
-                            <p>Naš tim stručnjaka je tu 24/7 da reši bilo koji tehnički izazov, bez čekanja na tikete i duge redove.</p>
+                            <h3 data-i18n="p:card_support_h">Lokalna Podrška</h3>
+                            <p data-i18n="p:card_support_p">Naš tim stručnjaka je tu 24/7 da reši bilo koji tehnički izazov, bez čekanja na tikete i duge redove.</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +128,7 @@
         <section class="section service-tally-cta" aria-label="Kontakt forma">
             <div class="container">
                 <div class="service-tally-embed reveal-up">
-                    <iframe src="https://tally.so/embed/RGZkzj?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" frameborder="0" marginheight="0" marginwidth="0" title="Kontaktirajte nas"></iframe>
+                    <iframe data-i18n-iframetitle="p:iframe" src="https://tally.so/embed/RGZkzj?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%" frameborder="0" marginheight="0" marginwidth="0" title="Kontaktirajte nas"></iframe>
                 </div>
             </div>
         </section>
@@ -129,31 +137,31 @@
         <div class="container footer-grid">
             <div class="footer-info">
                 <a href="index.html" class="logo">Create<span>WebPlace</span></a>
-                <p class="footer-desc">Kreativna digitalna agencija fokusirana na high-end web platforme, moderan dizajn i naprednu SEO optimizaciju.</p>
+                <p class="footer-desc" data-i18n="c:footer.lead">Kreativna digitalna agencija fokusirana na high-end web platforme, moderan dizajn i naprednu SEO optimizaciju.</p>
                 <div class="footer-contact-info">
                     <p><a href="tel:+381111234567" style="color:inherit;text-decoration:none;"></a></p>
                 </div>
             </div>
             <div class="footer-nav-col">
-                <h4>Navigacija</h4>
+                <h4 data-i18n="c:footer.nav_heading">Navigacija</h4>
                 <ul>
-                    <li><a href="index.html">Početna</a></li>
-                    <li><a href="usluge.html">Usluge</a></li>
-                    <li><a href="projekti.html">Projekti</a></li>
-                    <li><a href="o-nama.html">O Nama</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="index.html" data-i18n="c:nav.home">Početna</a></li>
+                    <li><a href="usluge.html" data-i18n="c:nav.services">Usluge</a></li>
+                    <li><a href="projekti.html" data-i18n="c:nav.projects">Projekti</a></li>
+                    <li><a href="o-nama.html" data-i18n="c:nav.about">O Nama</a></li>
+                    <li><a href="kontakt.html" data-i18n="c:nav.contact">Kontakt</a></li>
                 </ul>
             </div>
             <div class="footer-nav-col">
-                <h4>Naše Usluge</h4>
+                <h4 data-i18n="c:footer.services_heading">Naše Usluge</h4>
                 <ul>
-                    <li><a href="web-dizajn.html">Web Dizajn</a></li>
-                    <li><a href="web-shop.html">Web Prodavnice</a></li>
-                    <li><a href="seo-optimizacija.html">SEO Optimizacija</a></li>
+                    <li><a href="web-dizajn.html" data-i18n="c:dropdown.web_design">Web Dizajn</a></li>
+                    <li><a href="web-shop.html" data-i18n="c:footer.shops">Web Prodavnice</a></li>
+                    <li><a href="seo-optimizacija.html" data-i18n="c:dropdown.seo">SEO Optimizacija</a></li>
                 </ul>
             </div>
             <div class="footer-newsletter">
-                <h4>Pratite nas</h4>
+                <h4 data-i18n="c:footer.follow_heading">Pratite nas</h4>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/dragoslav-ivkovic-104b68383/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="https://www.facebook.com/people/Izrada-web-sajta-povoljno/61564686248403/" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -161,16 +169,16 @@
             </div>
         </div>
         <div class="footer-bottom container">
-            <p>&copy; 2024 CreateWebPlace. Sva prava zadržana.</p>
+            <p data-i18n="c:footer.copyright">&copy; 2024 CreateWebPlace. Sva prava zadržana.</p>
             <div class="footer-legal">
-                <a href="#">Politika Privatnosti</a>
-                <a href="#">Uslovi Korišćenja</a>
+                <a href="#" data-i18n="c:footer.privacy">Politika Privatnosti</a>
+                <a href="#" data-i18n="c:footer.terms">Uslovi Korišćenja</a>
             </div>
         </div>
     </footer>
     <!-- Floating Contact Stack -->
     <div class="floating-contact-stack">
-        <a href="tel:+381111234567" class="contact-icon phone" id="phone-pulse" aria-label="Pozovi">
+        <a href="tel:+381111234567" class="contact-icon phone" data-i18n-aria="c:floating.call" id="phone-pulse" aria-label="Pozovi">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/></svg>
         </a>
         <a href="viber://chat?number=%2B381111234567" class="contact-icon viber" aria-label="Viber">
@@ -179,7 +187,7 @@
         <a href="https://wa.me/381111234567" class="contact-icon whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
         </a>
-        <a href="kontakt.html" class="contact-icon email" aria-label="Kontakt">
+        <a href="kontakt.html" class="contact-icon email" data-i18n-aria="c:floating.contact" aria-label="Kontakt">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
         </a>
     </div>
@@ -187,29 +195,30 @@
         <div class="contact-modal-content">
             <!-- View 1: Options -->
             <div id="modal-view-options" class="modal-view active">
-                <h3>Započnimo razgovor</h3>
-                <p>Izaberite način na koji želite da nas kontaktirate.</p>
+                <h3 data-i18n="c:modal.start_talk">Započnimo razgovor</h3>
+                <p data-i18n="c:modal.choose_how">Izaberite način na koji želite da nas kontaktirate.</p>
                 <div class="modal-options">
                     <a href="tel:+381111234567" class="modal-opt-btn highlight">
-                        <span>Pozovite nas odmah</span>
+                        <span data-i18n="c:modal.call_now">Pozovite nas odmah</span>
                     </a>
                     <button class="modal-opt-btn" id="show-contact-form-btn">
-                        <span>Pošaljite upit mejlom</span>
+                        <span data-i18n="c:modal.send_email">Pošaljite upit mejlom</span>
                     </button>
                 </div>
             </div>
 
             <!-- View 2: Form -->
             <div id="modal-view-form" class="modal-view">
-                <button class="back-to-options" id="back-to-options-btn">← Nazad</button>
-                <h3>Pošaljite poruku</h3>
-                <p>Tu smo da odgovorimo na sva vaša pitanja.</p>
-                <iframe src="https://tally.so/embed/RGZkzj?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%"  frameborder="0" marginheight="0" marginwidth="0" title="Kontaktirajte nas"></iframe>
+                <button class="back-to-options" id="back-to-options-btn" data-i18n="c:modal.back">← Nazad</button>
+                <h3 data-i18n="c:modal.send_title">Pošaljite poruku</h3>
+                <p data-i18n="c:modal.send_lead">Tu smo da odgovorimo na sva vaša pitanja.</p>
+                <iframe data-i18n-iframetitle="p:iframe" src="https://tally.so/embed/RGZkzj?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1&formEventsForwarding=1" loading="lazy" width="100%"  frameborder="0" marginheight="0" marginwidth="0" title="Kontaktirajte nas"></iframe>
             </div>
 
-            <button class="close-modal-btn" id="close-contact-modal">Zatvori</button>
+            <button class="close-modal-btn" id="close-contact-modal" data-i18n="c:modal.close">Zatvori</button>
         </div>
     </div>
-    <script src="script.js" defer></script>
+    <script src="i18n.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>

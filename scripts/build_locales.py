@@ -1,0 +1,470 @@
+# -*- coding: utf-8 -*-
+"""One-off generator for locale JSON shards (UTF-8). Run: python3 scripts/build_locales.py"""
+import json
+import pathlib
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+MAIN = ROOT / "locales" / "en-pages-main.json"
+SERV = ROOT / "locales" / "en-pages-services.json"
+
+
+def main():
+    pages_main = {
+        "pages": {
+            "index": {
+                "meta": {
+                    "title": "CreateWebPlace | Premium web & apps for ambitious teams",
+                    "description": "CreateWebPlace builds modern websites and apps with performance-first engineering, UX design, SEO, hosting, ads, local visibility, automation and growth strategy.",
+                    "keywords": "web development, ecommerce, SEO, Serbia, Croatia, hosting, UX, branding"
+                },
+                "hero": {
+                    "h1": "Websites and online stores built for modern markets.",
+                    "cta_primary": "Start a project",
+                    "cta_outline": "Our work",
+                    "img_alt_bg": "Abstract business analytics imagery"
+                },
+                "services": {
+                    "kicker": "Focus",
+                    "h2": "Digital solutions we deliver",
+                    "card1_title": "Sites & enterprise-grade platforms",
+                    "card1_p": "Robust architecture, fast load times and crystal-clear journeys — so prospects understand your offer instantly.",
+                    "card1_link": "Full engineering offering »",
+                    "card1_alt": "Developer working on a web platform",
+                    "card2_title": "Mobile apps & UI/UX",
+                    "card2_p": "iOS & Android interfaces aligned with your brand — fewer steps to conversion and more clarity at every tap.",
+                    "card2_link": "More about our design approach »",
+                    "card2_alt": "Mobile phone showcasing app UX",
+                    "footer_p_intro": "The full spectrum in one roadmap — ",
+                    "footer_p_mid": "a strategic order for what pays off first",
+                    "footer_link": "See everything we cover"
+                },
+                "gb": {
+                    "subtitle": "Google & local visibility",
+                    "h2": "Stand out on Google Search and Maps",
+                    "chip_search": "Search",
+                    "card1_kicker": "Your Google presence",
+                    "card1_title": "Search & Maps that bring leads",
+                    "card1_html": "We help companies and trades <strong>set up and run a polished Google Business Profile</strong>: accurate categories, service area, creatives and messaging that prompts calls — not vanity metrics.",
+                    "card1_li1": "High visibility on Maps with queries where you genuinely compete (“near me”, service names…).",
+                    "card1_li2": "Tied into your website and Local SEO when you widen the radius.",
+                    "card2_kicker": "What people see before your site",
+                    "card2_title": "Trust before the first click",
+                    "card2_html": "Your Business Profile often appears before your site — hours, phone, directions, offerings, reviews. We shape and maintain it with messaging that earns trust.",
+                    "card2_li1": "Reviews and replies that build reputation — not stats for spreadsheets.",
+                    "card2_li2": "Imagery and service copy that feel handcrafted, never generic.",
+                    "chip_hours": "Hours",
+                    "link_local": "Local strategy & profiles — deeper dive »",
+                    "link_maps": "Google Maps for business — scope »",
+                    "chip_reviews": "Reviews",
+                    "chip_photo": "Photography",
+                    "chip_maps": "Maps"
+                },
+                "auto_sec": {
+                    "subtitle": "Automation",
+                    "h2": "Less busywork — more billable time",
+                    "lead": "Lean teams bleed hours on scheduling, pasted replies and “we’ll publish that post later.” We connect the tools you already use (site, email, calendar, WhatsApp) into workflows that hum while you’re on site.",
+                    "c1_k": "Content & SEO",
+                    "c1_t": "Blogs drafted and queued on autopilot",
+                    "c1_html": "Skip week-long wrestling with <strong>the site</strong>. <strong>Themes anchored to city/service</strong>, voice that still sounds human, tagging for search plus a <strong>rolling publish calendar</strong> — site, newsletter or social cutdowns when you approve (or automate when you’re satisfied).",
+                    "c1_li1": "Outlines sprung from FAQs your customers already ask.",
+                    "c1_li2": "Keyword coverage without keyword stuffing — Serbian copy that stays readable.",
+                    "chip_publish": "Editorial cadence",
+                    "link_blogseo": "How blogging feeds search »",
+                    "chip_blog": "Blog",
+                    "c2_k": "Cadence",
+                    "c2_t": "Scheduling & reminders · fewer ghosted appointments",
+                    "c2_html": "Guests book — or you book — inside <strong>one calendar</strong>. SMS/WhatsApp confirmations, polite “still coming?” pings, reminders the day prior. Fewer salon no-shows and fewer midnight Viber pings.",
+                    "c2_li1": "Form submit → notifies you plus confirms them — typed once.",
+                    "c2_li2": "Post-visit prompts for Google reviews at the right moment.",
+                    "chip_sms": "SMS / WhatsApp",
+                    "chip_gap": "No-shows",
+                    "link_flow": "Map your workflows with us »",
+                    "pill_title": "What else earns ROI for compact teams?",
+                    "pill_li1_html": "<strong>Site enquiries</strong> — copies into a sheet or lite CRM, auto-reply to the sender, instant ping to you.",
+                    "pill_li2_html": "<strong>Quotes & invoices</strong> — one-click templates, sequence numbers, PDF by email (fewer math mistakes).",
+                    "pill_li3_html": "<strong>Social</strong> — one story, many crops and channels on a schedule.",
+                    "pill_li4_html": "<strong>Chat / FAQs</strong> — 24/7 answers sourced from your pricing and hours.",
+                    "pill_li5_html": "<strong>Reporting</strong> — who booked, which channel drove the lead (Maps, Instagram, organic) so you know where to invest.",
+                    "pill_cta_html": "<strong>Packaged to your budget</strong> — we sell operational clarity, not magic tricks. <a href=\"kontakt.html\" class=\"sv3-link-inline\">Book a short call</a>"
+                },
+                "portfolio": {
+                    "subtitle": "Portfolio",
+                    "h2": "Selected work",
+                    "all_link": "All projects",
+                    "adapt_title": "Apartment renovation",
+                    "adapt_sub": "Belgrade — renovation showcase & portfolio",
+                    "adapt_iframe": "Site preview: Apartment renovation",
+                    "majstor_title": "Majstor Pro",
+                    "majstor_sub": "Belgrade — plumber & fast contact",
+                    "majstor_iframe": "Site preview: Trades landing"
+                },
+                "testimonials": {
+                    "subtitle": "Trust",
+                    "h2": "What clients say",
+                    "mj_name": "Marko Jovanović",
+                    "mj_badge": "2 reviews",
+                    "mj_quote": "CreateWebPlace’s professionalism is rare. Sites load well under one second and conversions visibly improved.",
+                    "as_name": "Ana Stefanović",
+                    "as_badge": "First review",
+                    "as_quote": "Clear communications, timelines respected, pixel-perfect interpretation of the brief.",
+                    "fn_name": "Filip Nikolić",
+                    "fn_badge": "5 reviews",
+                    "fn_quote": "We hunted a dependable web & SEO ally for ages — now measurements and traction are unmistakable.",
+                },
+                "about": {
+                    "subtitle": "About",
+                    "h2": "Engineering-grade digital ambition",
+                    "p": "We’re more than “an agency” — we’re your product partner. Every element earns its pixels; technology bends to revenue, never the inverse.",
+                    "projects": "Delivered projects",
+                    "uptime": "Uptime"
+                },
+                "footer_desc": "",
+            },
+            "usluge": {
+                "meta": {
+                    "title": "Services | CreateWebPlace — Comprehensive digital programmes",
+                    "description": "From premium web UX and ecommerce to SEO, GEO, ads, Maps, graphic design and digital menus."
+                },
+                "hero_k": "Expertise",
+                "hero_h_html": "Comprehensive <br><span class=\"gradient-text\">digital solutions</span>",
+                "hero_p": "From design through optimisation and hosting — one partner for sustained online traction.",
+                "b1_title": "Premium web design & UX engineering",
+                "b1_p1": "We architect digital ecosystems that feel premium yet convert — informed by behavioural research.",
+                "b1_p2": "Information architecture trims bounce rates and reinforces intent-based journeys.",
+                "b1_cta": "Explore our design process »",
+                "b2_title": "High-performing ecommerce builds",
+                "b2_p1": "Composable storefronts tuned for carts, fulfilment signals and flawless mobile checkout.",
+                "b2_p2": "m-commerce optimised with instrumentation you can steer by.",
+                "b2_cta": "Retail engineering details »",
+                "b3_title": "Search dominance & content strategy",
+                "b3_p1": "Technical audits, authoritative content and topical authority stitched to revenue keywords.",
+                "b3_p2": "Algorithms shift — we sprint the marathon beside you.",
+                "b3_cta": "Full SEO roadmap »",
+                "b4_title": "Hyper-local visibility",
+                "b4_p1": "GBP optimisation, citations, geo landing pages tuned for transactional intent.",
+                "b4_p2": "Own the SERP neighbourhoods that actually pay rent.",
+                "b4_cta": "Lead local SERPs »",
+                "b5_title": "GEO & AI-discovery readiness",
+                "b5_p1": "Entity graphs, schemas and conversational prompts surfaced to ChatGPT-era discovery.",
+                "b5_p2": "Tomorrow’s citations start with today’s structuring.",
+                "b5_cta": "GEO visibility playbook »",
+                "b6_title": "Ultra-fast hosting & infra",
+                "b6_p1": "NVMe, CDN-backed stacks guarded by pragmatic SRE drills.",
+                "b6_p2": "Peace of mind on backups, TLS and patching.",
+                "b6_cta": "Hosting tiers »",
+                "b7_title": "Google Ads engineered for CPA",
+                "b7_p1": "Audience intelligence, creatives and landing synergy built for repeatable ROI.",
+                "b7_p2": "We iterate ruthlessly toward efficiency.",
+                "b7_cta": "Growth desk »",
+                "b8_title": "Maps & local-pack engineering",
+                "b8_p1": "Ranking factors unpacked into execution on listings, imagery, attributes and QA.",
+                "b8_p2": "Reviews and entity validation without theatrics.",
+                "b8_cta": "Own the pin »",
+                "b9_title": "Holistic branding & visuals",
+                "b9_p1": "Distinctive palettes, typography systems and tactile assets that scale channel-to-channel.",
+                "b9_p2": "Strategy-led artistry that still sells SKUs.",
+                "b9_cta": "Brand systems »",
+                "b10_title": "Interactive digital menus",
+                "b10_p1": "QR-first hospitality menus with instantaneous price or dish updates.",
+                "b10_p2": "Built-in analytics for menu engineering.",
+                "b10_cta": "Hospitality digitisation »",
+                "proc_k": "Method",
+                "proc_h_html": "How <span class=\"gradient-text\">we work</span>",
+                "proc_lead": "Transparent engineering cadence that de-risks delivery.",
+                "s1_h": "Discovery & strategy",
+                "s1_p": "We stress-test goals, audiences and constraints before pixels move.",
+                "s2_h": "Design & prototype",
+                "s2_p": "High-fidelity UI paired with interactive prototypes.",
+                "s3_h": "Build & QA",
+                "s3_p": "Clean code, performance budgets, security sweeps on every device class.",
+                "s4_h": "Launch & partnership",
+                "s4_p": "We stay embedded for iteration, analytics and scale.",
+                "faq_k": "Questions",
+                "faq_h_html": "Frequently <br><span class=\"gradient-text\">asked</span>",
+                "faq_lead": "Collaboration essentials in one glance.",
+                "faq1_q": "How long does a typical site take?",
+                "faq1_a": "Marketing sites often land in 2–3 weeks; complex platforms can span 6–12 weeks depending on integrations.",
+                "faq2_q": "Do you provide post-launch care?",
+                "faq2_a": "Yes — retainers include security updates, monitoring and measured improvements.",
+                "faq3_q": "Will the build ship SEO-ready?",
+                "faq3_a": "Every launch includes foundational technical SEO; larger programmes stack content & authority work.",
+                "iframe_contact": "Contact form"
+            },
+            "projekti": {
+                "meta": {
+                    "title": "Projects | CreateWebPlace — Portfolio snapshots",
+                    "description": "Live builds spanning renovation, trades, SaaS gateways, veterinary apps and tutoring."
+                },
+                "subtitle": "Work gallery",
+                "h_html": "Projects <br><span class=\"gradient-text\">that compound</span>",
+                "lead": "Highlights from performance-led engineering and restrained design polish.",
+                "live": "LIVE",
+                "app_tag": "APP",
+                "adapt_title": "Apartment renovation",
+                "adapt_sub": "Remix showcase — curated Belgrade retrofit storytelling.",
+                "adapt_iframe": "Site preview: Apartment renovation",
+                "vod_title": "vodoinstalater.store",
+                "vod_sub": "Glass-style landing — emergency trades across Belgrade.",
+                "vod_iframe": "Site preview: Trades storefront",
+                "vet_kicker": "Pet health",
+                "vet_name_tile": "Vet Record",
+                "vet_title": "Vet Record",
+                "vet_sub": "Health timeline, vaccinations and meds · iOS & Android.",
+                "math_badge": "Google Play",
+                "math_name": "School Math Pro",
+                "math_title": "School Math Pro",
+                "math_sub": "Digital tutor · step-by-step maths without intrusive ads.",
+                "dc_title": "Direct China Goods",
+                "dc_iframe": "Site preview: Direct China Goods",
+                "dc_sub": "China sourcing gateway — B2B access with trusted routing."
+            },
+            "o-nama": {
+                "meta": {
+                    "title": "About | CreateWebPlace — Boundary-pushing builders",
+                    "description": "Engineers, designers and strategists shipping premium digital outcomes from Belgrade."
+                },
+                "hero_k": "Our story",
+                "hero_h_html": "Engineering <br><span class=\"gradient-text\">without concessions</span>",
+                "lead": "Beyond a dev roster — embedded technologists forging your roadmap.",
+                "h2_who": "Who we are",
+                "p1": "CreateWebPlace is a multidisciplinary hub headquartered in Belgrade. Engineers, designers and strategists share one belief — technology must disappear beneath exceptional UX.",
+                "p2": "We refuse “just pushing code”; we dismantle friction with architecture.",
+                "li1": "Integrity in every pixel",
+                "li2": "Speed as doctrine",
+                "li3": "Design tuned to conversion maths",
+                "stat1": "Successful programmes",
+                "stat2": "Years of practice",
+                "stat3": "Uptime SLA",
+                "stat4": "Hands-on care"
+            },
+            "kontakt": {
+                "meta": {
+                    "title": "Contact | CreateWebPlace",
+                    "description": "Reach CreateWebPlace — tell us what you’re building.",
+                },
+                "iframe_title": "Contact form"
+            },
+            "404": {
+                "meta": {
+                    "title": "Page not found | CreateWebPlace",
+                    "description": "The requested page moved or doesn’t exist."
+                },
+                "h1": "Looks like this path doesn’t resolve.",
+                "lead": "The page isn’t available (or migrated). Use the shortcut below.",
+                "cta": "Back to homepage"
+            },
+        }
+    }
+
+    # trim unused footer_desc dup on index
+    del pages_main["pages"]["index"]["footer_desc"]
+
+    services = build_service_pages()
+
+    MAIN.write_text(json.dumps(pages_main, ensure_ascii=False, indent=2), encoding="utf-8")
+    SERV.write_text(json.dumps({"pages": services}, ensure_ascii=False, indent=2), encoding="utf-8")
+    print("Wrote", MAIN, SERV)
+
+
+def tpl_detail(**kw):
+    return {
+        "meta": kw["meta"],
+        "hero_k": kw["hero_k"],
+        "hero_h_html": kw["hero_h_html"],
+        "hero_sub": kw["hero_sub"],
+        "h2": kw["h2"],
+        "intro_html": kw["intro_html"],
+        "s1_title": kw["s1_title"],
+        "s1_html": kw["s1_html"],
+        "s2_title": kw["s2_title"],
+        "s2_html": kw["s2_html"],
+        "s3_title": kw["s3_title"],
+        "s3_html": kw["s3_html"],
+        "iframe": "Contact form",
+    }
+
+
+def build_service_pages():
+    return {
+        "web-dizajn": tpl_detail(
+            meta={
+                "title": "Web design | CreateWebPlace — Precision UI / UX",
+                "description": "Responsive, conversion-minded websites balancing brand stature with measurable engagement.",
+            },
+            hero_k="Architecture & aesthetics",
+            hero_h_html='Premium Web <span class=\"gradient-text\">Design</span>',
+            hero_sub="Digital systems marrying engineering rigour with art-directed identity.",
+            h2="The science beneath every pixel",
+            intro_html="Design isn’t veneer — it maps persuasion pathways, trims cognitive load and encodes behavioural cues bespoke to your offer.",
+            s1_title="UX research & information architecture",
+            s1_html="Content trees, taxonomy and prototypes align eye-flow with decisive moments before art direction kicks in.",
+            s2_title="UI craft & branded systems",
+            s2_html="Premium typography palettes, restrained colour logic and tactile micro-interactions that age gracefully.",
+            s3_title="Responsive performance budgets",
+            s3_html="Mobile-first choreography with Core Web Vital discipline so polish never compromises speed.",
+        ),
+        "web-shop": tpl_detail(
+            meta={
+                "title": "Ecommerce | CreateWebPlace — Conversion-focused stores",
+                "description": "Composable commerce UX, optimised checkout telemetry and ruthless mobile merchandising.",
+            },
+            hero_k="Commerce acceleration",
+            hero_h_html='Advanced Web <span class=\"gradient-text\">Stores</span>',
+            hero_sub="Catalogues, carts and fulfilment stitched for revenue telemetry.",
+            h2="Stack depth that scales basket size",
+            intro_html="We engineer merchandising ladders, elasticity around promos and trust signals calibrated to SKU psychology.",
+            s1_title="Catalog intelligence & onsite search",
+            s1_html="Faceting, synonyms and zero-result safeguards tuned to margin winners.",
+            s2_title="Checkout trust & fraud hygiene",
+            s2_html="Payment orchestration layered with abandonment analytics and SLA observability.",
+            s3_title="Always-on optimisation lab",
+            s3_html="Variant testing on PDP modules, creatives and transactional copy — instrumented relentlessly.",
+        ),
+        "seo-optimizacija": tpl_detail(
+            meta={
+                "title": "SEO strategy | CreateWebPlace — Visible where intent pays",
+                "description": "Technical SEO, authoritative content hubs and ethically earned authority signals.",
+            },
+            hero_k="Search dominance",
+            hero_h_html='SEO <span class=\"gradient-text\">Strategy</span>',
+            hero_sub="Authority engineered through semantics, schemas and ruthless technical hygiene.",
+            h2="Visibility that stacks revenue",
+            intro_html="We sync entity graphs, conversational queries and crawler economics so discovery compounds quarterly.",
+            s1_title="Technical SEO audits & IA",
+            s1_html="Crawl budgeting, indexing hygiene, markup that machines and humans grasp equally fast.",
+            s2_title="Authoritative topical content",
+            s2_html="Editorial rhythms mapped to intents — not fluff keywords shoehorned for vanity.",
+            s3_title="Reputation & backlinks",
+            s3_html="White-hat partnerships and digital PR scaffolding that survives algorithm volatility.",
+        ),
+        "local-seo": tpl_detail(
+            meta={
+                "title": "Local SEO | CreateWebPlace — Own the neighbourhoods that pay",
+                "description": "GBP choreography, citations, localized landing arcs and geo reviews programmes.",
+            },
+            hero_k="Geo intent",
+            hero_h_html='Local <span class=\"gradient-text\">SEO</span>',
+            hero_sub="Pin-point visibility for storefronts & field teams chasing high-intent “near me” traffic.",
+            h2="Be the default neighbourhood answer",
+            intro_html="We sculpt listings, QA NAP footprints and nurture reviews shaping map-pack trust.",
+            s1_title="Profile physics & categorical precision",
+            s1_html="Photos, offerings, FAQs and moderation cadence optimised for CTR + map ranking factors.",
+            s2_title="Localised storytelling",
+            s2_html="Landing variants per catchment weaving schema, events and FAQs.",
+            s3_title="Citation mesh & vigilance",
+            s3_html="Directory coherence with watchdog alerts when data drifts stale.",
+        ),
+        "geo-optimizacija": tpl_detail(
+            meta={
+                "title": "GEO optimisation | CreateWebPlace — AI-era discoverability",
+                "description": "Future-proof entity graphs surfaced to Gemini, GPT and assistant ecosystems.",
+            },
+            hero_k="Discovery engineering",
+            hero_h_html='Geo <span class=\"gradient-text\">Optimisation</span>',
+            hero_sub="Structured footprints so AI intermediaries confidently recommend your services.",
+            h2="Be the cited answer—not an afterthought",
+            intro_html="We translate brand facts into interoperable schemas mirroring conversational commerce.",
+            s1_title="Entity graphs & ontology",
+            s1_html="Products, locales and experts described for machine parsers first, humans second.",
+            s2_title="GEO + SEO convergence",
+            s2_html="Maps, FAQs and corroborative sources blended for assistant-grade confidence scores.",
+            s3_title="Continuous calibration",
+            s3_html="We monitor ingestion surfaces and refresh signals as AI platforms evolve.",
+        ),
+        "google-ads": tpl_detail(
+            meta={
+                "title": "Google Ads | CreateWebPlace — Performance media desk",
+                "description": "PPC experimentation, creative velocity and landing alignment measured on CPA—not vanity CTR.",
+            },
+            hero_k="Performance marketing",
+            hero_h_html='Google <span class=\"gradient-text\">Ads</span>',
+            hero_sub="ROI engineered through obsessive targeting maths and ruthless creative iteration.",
+            h2="Precision that prints margin",
+            intro_html="We banish spray-and-pray bidding by anchoring KPIs before spend hits the wires.",
+            s1_title="Intent stacks & negatives",
+            s1_html="Keyword scaffolding isolates purchase-ready verbs while starving curiosity browsers.",
+            s2_title="Test velocity & UX loops",
+            s2_html="Ad ↔ landing interplay tuned weekly with statistical guardrails.",
+            s3_title="Transparent scaling",
+            s3_html="Forecast models show how incremental budget ladders into pipeline.",
+        ),
+        "google-maps": tpl_detail(
+            meta={
+                "title": "Google Maps optimisation | CreateWebPlace — Local pack supremacy",
+                "description": "Deep GBP + Maps choreography for bricks, mobile crews and franchises.",
+            },
+            hero_k="Maps engineering",
+            hero_h_html='Google Maps <span class=\"gradient-text\">Dominance</span>',
+            hero_sub="Map-pack choreography plus review programmes that amplify trust deltas.",
+            h2="Win the carousel your buyers swipe",
+            intro_html="We weaponise GBP attributes tourists and locals actually filter on—not vanity categories.",
+            s1_title="Ranking levers unpacked",
+            s1_html="Imagery QA, QA posts, behavioural signals and CTR experiments.",
+            s2_title="Review physics",
+            s2_html="Solicitation timing, escalation scripts and moderation SLAs stitched to sentiment lift.",
+            s3_title="Map ↔ web cohesion",
+            s3_html="UTMs, journeys and attribution proving map leads convert—not just flirt.",
+        ),
+        "graficki-dizajn": tpl_detail(
+            meta={
+                "title": "Graphic design | CreateWebPlace — Brand architecture studio",
+                "description": "Modular identities, tactile collateral stacks and storytelling systems anchored to ROI.",
+            },
+            hero_k="Visual systems",
+            hero_h_html='Brand <span class=\"gradient-text\">Architecture</span>',
+            hero_sub="Identity languages that articulate promise before a word loads.",
+            h2="Clarity louder than ornamental noise",
+            intro_html="We distill narrative tension into repeatable visual grammar across print, digital & motion.",
+            s1_title="Strategic discovery",
+            s1_html="Audience psychographics distilled into symbolism and tonal guardrails.",
+            s2_title="Asset ecosystems",
+            s2_html="Layouts, typography scales and motion cues ready for localization teams.",
+            s3_title="Shelf & screen validation",
+            s3_html="Stress-tests on contrast, readability and tactile finishes before launch.",
+        ),
+        "digitalni-meni": tpl_detail(
+            meta={
+                "title": "Digital menus | CreateWebPlace — QR hospitality tooling",
+                "description": "Stylish QR menus, instant price pushes and analytic dish intelligence.",
+            },
+            hero_k="Hospitality OS",
+            hero_h_html='Digital <span class=\"gradient-text\">Menu</span>',
+            hero_sub="QR-first gastronomy UX with instantaneous menu ops & upsell scaffolding.",
+            h2="Delight diners while ops stay nimble",
+            intro_html="Swap dishes, allergens and pairings sans reprints while capturing consumption analytics nightly.",
+            s1_title="Immersive mobile menus",
+            s1_html="Photography-forward layouts optimised for thumbs in dim ambient light.",
+            s2_title="Ops intelligence",
+            s2_html="Heatmaps spotlight hero SKUs powering purchasing & staffing decisions.",
+            s3_title="Allergen-ready compliance flows",
+            s3_html="Localized toggles synced with kitchens for peace of mind.",
+        ),
+        "hosting": {
+            "meta": {
+                "title": "Hosting | CreateWebPlace — Enterprise-lite infrastructure",
+                "description": "NVMe-backed stacks with observant SRE rhythms and transparent SLAs.",
+            },
+            "hero_k": "Premium infrastructure",
+            "hero_h_html": 'Lighting-fast <span class="gradient-text">Hosting</span>',
+            "hero_sub": "Sites deserve uptime, elasticity and vigilant patching — without enterprise bureaucracy.",
+            "h2_performance": "Performance without excuses",
+            "p_perf1": "Every millisecond of latency costs revenue — our stacks marry NVMe, LiteSpeed and pragmatic tuning rituals.",
+            "p_perf2": "99.9% uptime isn't marketing — it's the baseline SLA we monitor nightly.",
+            "stat_uptime": "Guaranteed uptime",
+            "stat_ssd": "SSD / NVMe storage",
+            "sec_k": "Security & velocity",
+            "sec_h": "Hosting hallmarks",
+            "card_backup_h": "Daily backups",
+            "card_backup_p": "Rolling snapshots mean rollback is one pragmatic click away.",
+            "card_ssl_h": "Managed TLS",
+            "card_ssl_p": "Certificates ship standard — HTTPS & trust hints baked in.",
+            "card_support_h": "Human escalation",
+            "card_support_p": "Engineers—not ticket theatre—respond when incidents spike.",
+            "iframe": "Contact form",
+            "section_cta_label": "Contact form embed",
+        },
+    }
+
+
+if __name__ == "__main__":
+    main()
