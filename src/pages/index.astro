@@ -1,0 +1,751 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+---
+
+<BaseLayout
+  title={'CreateWebPlace | Profesionalna izrada sajtova i online prodavnica'}
+  description={'CreateWebPlace projektuje, razvija i objavljuje brze, pouzdane poslovne sajtove i web prodavnice — UX, performanse, SEO, hosting i integracije. Pokrenite sajt koji donosi upite.'}
+  keywords={'izrada web sajtova, mobilne aplikacije iOS Android, web dizajn Srbija, digitalna agencija, SEO optimizacija'}
+  canonical={'https://createwebplace.rs/index.html'}
+  dataPage={'index'}
+  bodyId={'top'}
+  activeSection={null}
+  isHome={true}
+  showPreloader={true}
+>
+  <Fragment slot="head">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://createwebplace.rs/" />
+    <meta
+      property="og:title"
+      content="CreateWebPlace | Izrada sajtova koji grade poverenje i upite"
+    />
+    <meta
+      property="og:description"
+      content="Dizajn, razvoj i objava poslovnih sajtova i prodavnica — brzo učitavanje, jasna ponuda, SEO i integracije. Partner za lansiranje na webu."
+    />
+    <meta property="og:image" content="https://createwebplace.rs/assets/og-image.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://createwebplace.rs/" />
+    <meta property="twitter:title" content="CreateWebPlace | Izrada profesionalnih sajtova" />
+    <meta
+      property="twitter:description"
+      content="Od strukture i dizajna do objave: sajtovi i online prodavnice prilagođeni vašem biznisu."
+    />
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CreateWebPlace",
+        "image": "https://createwebplace.rs/assets/logo.png",
+        "@id": "https://createwebplace.rs",
+        "url": "https://createwebplace.rs",
+        "telephone": "+381111234567",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Bulevar Kralja Aleksandra",
+          "addressLocality": "Beograd",
+          "postalCode": "11000",
+          "addressCountry": "RS"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 44.8125, "longitude": 20.4612 },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "17:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/people/Izrada-web-sajta-povoljno/61564686248403/",
+          "https://www.linkedin.com/in/dragoslav-ivkovic-104b68383/"
+        ]
+      }
+    </script>
+  </Fragment>
+  <main>
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-wrapper">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="hero-wrapper-grid">
+          <div class="hero-text-wrapper hero-content-left">
+            <span
+              class="subtitle hero-subtitle"
+              data-i18n="p:hero.subtitle"
+              style="color: var(--main-color);">Izrada i lansiranje sajtova</span
+            >
+            <h1 class="reveal-text" data-i18n="p:hero.h1">
+              Napravite sajt na koji se klijenti oslone — brz, jasan i spreman za upite.
+            </h1>
+            <p class="hero-subline reveal-up" data-i18n="p:hero.subline">
+              Projektujemo, građimo i objavljujemo poslovne sajtove i web prodavnice: jasno
+              pozicioniranje, uredan dizajn i merljive performanse — bez generičkih šablona koji
+              liče na hiljadu drugih sajtova.
+            </p>
+            <div class="hero-btns reveal-up">
+              <a href="kontakt.html" class="btn-primary hero-btn" data-i18n="p:hero.cta_primary"
+                >Započnite kratki brief za sajt</a
+              >
+              <a
+                href="#portfolio"
+                class="btn-outline hero-btn-outline"
+                data-i18n="p:hero.cta_outline">Pogledajte naše sajtove uživo</a
+              >
+            </div>
+          </div>
+          <div class="hero-visual-wrapper reveal-right">
+            <div class="hero-visual-inner">
+              <div class="hero-circle-bg">
+                <Image
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop"
+                  data-i18n-alt="p:hero.portrait_alt"
+                  alt="Tim na sastanku o strukturi sajta i objavi"
+                  class="hero-portrait-img"
+                  width={600}
+                  height={600}
+                  decoding="async"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
+            <!-- Floating Badges -->
+            <div class="floating-badge badge-1">
+              <div class="badge-icon">📢</div>
+              <div class="badge-text">
+                <h4 data-i18n="p:hero.badge_seo_title">SEO‑spreman sajt</h4>
+                <p data-i18n="p:hero.badge_seo_sub">
+                  Tehnički i sadržajni temelji ugrađeni u build.
+                </p>
+              </div>
+            </div>
+            <div class="floating-badge badge-2">
+              <div class="badge-icon">⚡</div>
+              <div class="badge-text">
+                <h4 data-i18n="p:hero.badge_web_title">Isporuka na webu</h4>
+                <p data-i18n="p:hero.badge_web_sub">Dizajn → QA → objava — ceo krug.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-bg-pattern-b">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="subtitle" style="color: #FF8359;" data-i18n="p:services.kicker"
+            >Šta isporučujemo</span
+          >
+          <h2 data-i18n="p:services.h2">
+            Celovita izrada sajta — i alati za rast koji prate vašu objavu
+          </h2>
+        </div>
+
+        <div class="services-showcase">
+          <article class="service-showcase-card reveal-up">
+            <div class="service-showcase-card__visual">
+              <Image
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+                data-i18n-alt="p:services.card1_alt"
+                alt="Rad na razvoju web platformi na laptopu"
+                width={600}
+                height={375}
+                decoding="async"
+                loading="lazy"
+                class="service-showcase-card__img"
+              />
+              <span class="service-showcase-card__shine" aria-hidden="true"></span>
+            </div>
+            <div class="service-showcase-card__accent" aria-hidden="true"></div>
+            <div class="service-showcase-card__body">
+              <h3 data-i18n="p:services.card1_title">
+                Prilagođeni poslovni sajtovi i web platforme
+              </h3>
+              <p data-i18n="p:services.card1_p">
+                Struktura stranica, UX, vizuelni jezik i kod usmereni na jedan cilj — da posetilac
+                odmah razume šta nudite, a pretrage mogu pouzdano da indeksiraju sadržaj.
+              </p>
+              <a href="usluge.html" class="text-link" data-i18n="p:services.card1_link"
+                >Pregled ponude za sajt »</a
+              >
+            </div>
+          </article>
+          <article
+            class="service-showcase-card service-showcase-card--alt reveal-up"
+            style="transition-delay: 0.06s;"
+          >
+            <div class="service-showcase-card__visual">
+              <Image
+                src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop"
+                data-i18n-alt="p:services.card2_alt"
+                alt="Mobilni telefon — aplikacije i UX u upotrebi"
+                width={600}
+                height={375}
+                decoding="async"
+                loading="lazy"
+                class="service-showcase-card__img"
+              />
+              <span class="service-showcase-card__shine" aria-hidden="true"></span>
+            </div>
+            <div
+              class="service-showcase-card__accent service-showcase-card__accent--alt"
+              aria-hidden="true"
+            >
+            </div>
+            <div class="service-showcase-card__body">
+              <h3 data-i18n="p:services.card2_title">Mobilni UI i prateći interfejsi</h3>
+              <p data-i18n="p:services.card2_p">
+                Kada prezentacija na webu nije dovoljna — dizajniramo prilagođena iskustva za
+                telefon koja prate vaš sajt i brend, bez hirovitih odstupanja na drugim uređajima.
+              </p>
+              <a href="web-dizajn.html" class="text-link" data-i18n="p:services.card2_link"
+                >Kako radimo dizajn UX/UI »</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div class="services-footer reveal-up">
+          <p>
+            <span data-i18n="p:services.footer_p_intro"
+              >Čitav spektar usluga jednim klikom —
+            </span><strong data-i18n="p:services.footer_p_mid"
+              >strateški raspored šta ima smisla prvo</strong
+            >. <a href="usluge.html" class="sv3-link-inline" data-i18n="p:services.footer_link"
+              >Pregled svega što radimo</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Google Business Profile (firme, majstori) -->
+    <section id="google-poslovni-profil" class="section gb-profile-section section-bg-pattern-a">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="subtitle gb-profile-section__subtitle" data-i18n="p:gb.subtitle"
+            >Google i lokal</span
+          >
+          <h2 data-i18n="p:gb.h2">Istaknite firmu na Google Pretrazi i Google Kartama</h2>
+        </div>
+        <div class="gb-profile-section__cards reveal-up">
+          <div class="gb-profile-cards gb-profile-cards--aligned">
+            <article class="gb-profile-card">
+              <div class="gb-profile-card__glow" aria-hidden="true"></div>
+              <p class="gb-profile-card__kicker" data-i18n="p:gb.card1_kicker">
+                Profil na Google‑u
+              </p>
+              <h3 class="gb-profile-card__title" data-i18n="p:gb.card1_title">
+                Pretraga i Karte koje donose upite
+              </h3>
+              <p class="gb-profile-card__text" data-i18n-html="p:gb.card1_html">
+                Pomažemo firmama i majstorima da <strong
+                  >profesionalno postave i vode poslovni profil</strong
+                > (Google Business Profile): tačne kategorije, radna zona, vizuelni materijal i tekstovi
+                koji vuku pozive iz pretrage — ne prazan broj pregleda.
+              </p>
+              <ul class="check-list gb-profile-card__list">
+                <li data-i18n="p:gb.card1_li1">
+                  Istaknuto mesto u „Maps“ i pojmovi kojima stvarno konkurišete (npr. „u blizini“,
+                  naziv usluge).
+                </li>
+                <li data-i18n="p:gb.card1_li2">
+                  Spoj sa vašim sajtom i Local SEO kada budete spremni na širi domet.
+                </li>
+              </ul>
+              <div class="gb-profile-card__chips">
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_maps">Maps</span>
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_search">Pretraga</span>
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_categories"
+                  >Kategorije</span
+                >
+              </div>
+              <div class="gb-profile-card__links">
+                <a href="local-seo.html" class="text-link" data-i18n="p:gb.link_local"
+                  >Lokalna strategija i profil — detaljnije &raquo;</a
+                >
+              </div>
+            </article>
+            <article class="gb-profile-card gb-profile-card--alt">
+              <div class="gb-profile-card__glow" aria-hidden="true"></div>
+              <p class="gb-profile-card__kicker" data-i18n="p:gb.card2_kicker">
+                Šta klijent vidi prvo
+              </p>
+              <h3 class="gb-profile-card__title" data-i18n="p:gb.card2_title">
+                Poverenje pre prvog klika na sajt
+              </h3>
+              <p class="gb-profile-card__text" data-i18n-html="p:gb.card2_html">
+                <strong>Poslovni profil</strong> je često prva kartica koju vide pre sajta: sati, telefon,
+                lokacija, ponuda, recenzije — tu se gubi ili dobija poverenje. Uređujemo i održavamo taj
+                prikaz uz jasnu poruku i trag na šta konkretno reaguju ljudi.
+              </p>
+              <ul class="check-list gb-profile-card__list">
+                <li data-i18n="p:gb.card2_li1">
+                  Recenzije i odgovori koji grade ugled — ne statistika radi brojki.
+                </li>
+                <li data-i18n="p:gb.card2_li2">
+                  Fotografije i opis usluge kao završen prikaz, ne kopirani šablon.
+                </li>
+              </ul>
+              <div class="gb-profile-card__chips">
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_reviews">Recenzije</span>
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_hours">Radno vreme</span>
+                <span class="gb-profile-card__chip" data-i18n="p:gb.chip_photo">Foto</span>
+              </div>
+              <div class="gb-profile-card__links">
+                <a
+                  href="google-maps.html"
+                  class="text-link gb-profile-card__link-secondary"
+                  data-i18n="p:gb.link_maps">Google Karte za biznis — šta sve ulazi &raquo;</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Posle objave: održavanje, sadržaj, upiti (vezano za sajt) -->
+    <section
+      id="automacija-poslovanja"
+      class="section gb-profile-section section-bg-pattern-b automacija-section"
+    >
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span
+            class="subtitle gb-profile-section__subtitle automacija-section__subtitle"
+            data-i18n="p:auto_sec.subtitle">Posle objave</span
+          >
+          <h2 data-i18n="p:auto_sec.h2">
+            Sajt koji i dalje „radi“ — sadržaj, upiti i manje haosa u komunikaciji
+          </h2>
+          <p class="auto-biz-lead reveal-up" data-i18n="p:auto_sec.lead">
+            Prvo gradimo i objavljujemo sajt. Zatim — po potrebi — pomažemo oko reda objava, formi
+            koje stižu kao upiti, zakazivanja i jasnih izveštaja da znate šta donosi klijente.
+          </p>
+        </div>
+        <div class="gb-profile-section__cards reveal-up">
+          <div class="gb-profile-cards gb-profile-cards--aligned">
+            <article class="gb-profile-card">
+              <div class="gb-profile-card__glow" aria-hidden="true"></div>
+              <p class="gb-profile-card__kicker" data-i18n="p:auto_sec.c1_k">Objave i vidljivost</p>
+              <h3 class="gb-profile-card__title" data-i18n="p:auto_sec.c1_t">
+                Uredan kalendar sadržaja koji podržava sajt
+              </h3>
+              <p class="gb-profile-card__text" data-i18n-html="p:auto_sec.c1_html">
+                Sajt bez svežeg sadržaja brzo deluje zastarelo. <strong
+                  >Postavljamo strukturu tema, ton i red objava</strong
+                > (stranice usluga, primeri radova, odgovori na česta pitanja) — da sajt raste sa vama,
+                a pretraga vidi kontinuitet umesto zamrznutog brošurijskog teksta.
+              </p>
+              <ul class="check-list gb-profile-card__list">
+                <li data-i18n="p:auto_sec.c1_li1">
+                  Teme iz realnih pitanja klijenata — ne prazni SEO tekstovi.
+                </li>
+                <li data-i18n="p:auto_sec.c1_li2">
+                  Ključne fraze organski, bez lomljenja čitljivosti na srpskom.
+                </li>
+              </ul>
+              <div class="gb-profile-card__chips">
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_blog"
+                  >Sadržaj sajta</span
+                >
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_publish"
+                  >Red objava</span
+                >
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_local"
+                  >Lokal SEO</span
+                >
+              </div>
+              <div class="gb-profile-card__links">
+                <a
+                  href="seo-optimizacija.html"
+                  class="text-link"
+                  data-i18n="p:auto_sec.link_blogseo">Kako sadržaj hrani pretragu »</a
+                >
+              </div>
+            </article>
+            <article class="gb-profile-card gb-profile-card--alt">
+              <div class="gb-profile-card__glow" aria-hidden="true"></div>
+              <p class="gb-profile-card__kicker" data-i18n="p:auto_sec.c2_k">Termini i poruke</p>
+              <h3 class="gb-profile-card__title" data-i18n="p:auto_sec.c2_t">
+                Manje copy‑paste poruka — jasnije zakazivanje
+              </h3>
+              <p class="gb-profile-card__text" data-i18n-html="p:auto_sec.c2_html">
+                Preko forme ili linka za zakazivanje na sajtu: <strong>isti kalendar</strong>, SMS
+                ili WhatsApp potvrde i podsetnici. Za salone, servise i konsultacije — <strong
+                  >manje no‑show‑ova</strong
+                > i bolje iskorišćeno vreme.
+              </p>
+              <ul class="check-list gb-profile-card__list">
+                <li data-i18n="p:auto_sec.c2_li1">
+                  Upit ili termin sa sajta → obaveštenje vama + automatska potvrda klijentu.
+                </li>
+                <li data-i18n="p:auto_sec.c2_li2">
+                  Diskretan podsetnik za recenziju nakon dobrog iskustva.
+                </li>
+              </ul>
+              <div class="gb-profile-card__chips">
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_schedule"
+                  >Termini</span
+                >
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_sms"
+                  >SMS / WhatsApp</span
+                >
+                <span class="gb-profile-card__chip" data-i18n="p:auto_sec.chip_gap">No‑show</span>
+              </div>
+              <div class="gb-profile-card__links">
+                <a
+                  href="kontakt.html"
+                  class="text-link gb-profile-card__link-secondary"
+                  data-i18n="p:auto_sec.link_flow">Prođimo vaš proces zajedno »</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="value-stack reveal-up" data-component="value-stack">
+          <header class="value-stack__header">
+            <p class="value-stack__eyebrow" data-i18n="p:auto_sec.stack_eyebrow">
+              Šta dobijate uz sajt
+            </p>
+            <h3 class="value-stack__title" data-i18n="p:auto_sec.stack_title">
+              Produkcijski spreman sajt — i sistem koji čuva vaše vreme
+            </h3>
+            <p class="value-stack__lead" data-i18n="p:auto_sec.stack_lead">
+              Počinjemo od jasnog cilja: struktura, dizajn, performanse i objava. Kada ste spremni,
+              povezujemo praktičan sloj (upiti, red sadržaja, lake integracije) da sajt ne ostane
+              „lepa slika bez efekta“.
+            </p>
+          </header>
+          <ul class="value-stack__grid">
+            <li class="value-stack__item">
+              <span class="value-stack__index" aria-hidden="true">01</span>
+              <div class="value-stack__body">
+                <h4 class="value-stack__item-title" data-i18n="p:auto_sec.stack_item1_title">
+                  Dizajn i kod oko vaše ponude
+                </h4>
+                <p class="value-stack__item-desc" data-i18n="p:auto_sec.stack_item1_desc">
+                  Jedinstven raspored sekcija, tipografija i komponenti koje možete ponavljati — ne
+                  generički šablon koji liči na hiljadu drugih sajtova.
+                </p>
+              </div>
+            </li>
+            <li class="value-stack__item">
+              <span class="value-stack__index" aria-hidden="true">02</span>
+              <div class="value-stack__body">
+                <h4 class="value-stack__item-title" data-i18n="p:auto_sec.stack_item2_title">
+                  Performanse na telefonu
+                </h4>
+                <p class="value-stack__item-desc" data-i18n="p:auto_sec.stack_item2_desc">
+                  Brzo učitavanje, čitljivost i pouzdani breakpoints — posebno važno za lokalnu
+                  pretragu i oglasne destinacije na mobilnom.
+                </p>
+              </div>
+            </li>
+            <li class="value-stack__item">
+              <span class="value-stack__index" aria-hidden="true">03</span>
+              <div class="value-stack__body">
+                <h4 class="value-stack__item-title" data-i18n="p:auto_sec.stack_item3_title">
+                  Forme i upiti koji stižu na pravo mesto
+                </h4>
+                <p class="value-stack__item-desc" data-i18n="p:auto_sec.stack_item3_desc">
+                  Strukturisani upiti (mejl/table/CRM šabloni), potvrde klijentu i trag u evidenciji
+                  — manje izgubljenih poruka iz kontakt forme.
+                </p>
+              </div>
+            </li>
+            <li class="value-stack__item">
+              <span class="value-stack__index" aria-hidden="true">04</span>
+              <div class="value-stack__body">
+                <h4 class="value-stack__item-title" data-i18n="p:auto_sec.stack_item4_title">
+                  SEO i Google slojevi bez šuma
+                </h4>
+                <p class="value-stack__item-desc" data-i18n="p:auto_sec.stack_item4_desc">
+                  Tehnički SEO temelji, meta podaci po stranicama i usklađivanje sa Google profilom
+                  kada je biznis lokalan ili uslužni.
+                </p>
+              </div>
+            </li>
+            <li class="value-stack__item">
+              <span class="value-stack__index" aria-hidden="true">05</span>
+              <div class="value-stack__body">
+                <h4 class="value-stack__item-title" data-i18n="p:auto_sec.stack_item5_title">
+                  Merenje koja donosi odluku
+                </h4>
+                <p class="value-stack__item-desc" data-i18n="p:auto_sec.stack_item5_desc">
+                  Vidite koja stranica i koji kanal (organsko, Maps, kampanja) dovodi zakazivanja
+                  ili upite — da budžet ide tamo gde se isplati.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <p class="value-stack__footer" data-i18n-html="p:auto_sec.stack_cta_line">
+            <strong>Sve usklađujemo sa budžetom</strong> — bez obećanja „čarobnjaka“, uz jasne korake.
+            <a href="kontakt.html" class="sv3-link-inline value-stack__cta-link"
+              >Zakažite kratak razgovor o sajtu</a
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Portfolio -->
+    <section id="portfolio" class="section section-bg-pattern-b">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="subtitle" data-i18n="p:portfolio.subtitle">Portfolio</span>
+          <h2 data-i18n="p:portfolio.h2">Odabrani Radovi</h2>
+          <p class="portfolio-header-more">
+            <a href="projekti.html" class="sv3-link" data-i18n="p:portfolio.all_link"
+              >Svi projekti</a
+            >
+          </p>
+        </div>
+        <div class="portfolio-grid">
+          <a
+            href="https://adaptacijastanova.online/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--embed">
+              <div class="embed-site-preview">
+                <iframe
+                  src="https://adaptacijastanova.online/"
+                  data-i18n-iframetitle="p:portfolio.adapt_iframe"
+                  title="Pregled sajta Adaptacija Stanova"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="item-info">
+              <h3 data-i18n="p:portfolio.adapt_title">Adaptacija Stanova</h3>
+              <p data-i18n="p:portfolio.adapt_sub">
+                Beograd — prezentacija adaptacije i portfolija
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://vodoinstalater.store/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--embed">
+              <div class="embed-site-preview">
+                <iframe
+                  src="https://vodoinstalater.store/"
+                  data-i18n-iframetitle="p:portfolio.majstor_iframe"
+                  title="Pregled sajta Majstor"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="item-info">
+              <h3 data-i18n="p:portfolio.majstor_title">Majstor Pro</h3>
+              <p data-i18n="p:portfolio.majstor_sub">
+                Beograd — majstor, vodoinstalater, brzi kontakt
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials (Google review stil) -->
+    <section class="section testimonial-section section-bg-pattern-a">
+      <div class="services-marquee" aria-hidden="true">
+        <div class="services-marquee__viewport">
+          <div class="services-marquee__track">
+            <div class="services-marquee__group">
+              <span class="services-marquee__word" data-i18n="c:mq.seo">SEO</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.web">Web sajto</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.apps">Mobilne aplikacije</span
+              ><span class="services-marquee__sep">·</span>
+              <span class="services-marquee__word" data-i18n="c:mq.commerce">E‑commerce</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.ads">Google Ads</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.localseo">Local SEO</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.hosting">Hosting</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.design">Web dizajn</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.graphic">Grafički dizajn</span
+              ><span class="services-marquee__sep">·</span>
+              <span class="services-marquee__word" data-i18n="c:mq.site">Sajt</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.perf">Performanse</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.brand">Brend</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.ux">UX / UI</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.maps">Google Maps</span>
+            </div>
+            <div class="services-marquee__group services-marquee__group--dup">
+              <span class="services-marquee__word" data-i18n="c:mq.seo">SEO</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.web">Web sajto</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.apps">Mobilne aplikacije</span
+              ><span class="services-marquee__sep">·</span>
+              <span class="services-marquee__word" data-i18n="c:mq.commerce">E‑commerce</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.ads">Google Ads</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.localseo">Local SEO</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.hosting">Hosting</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.design">Web dizajn</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.graphic">Grafički dizajn</span
+              ><span class="services-marquee__sep">·</span>
+              <span class="services-marquee__word" data-i18n="c:mq.site">Sajt</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.perf">Performanse</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.brand">Brend</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.ux">UX / UI</span><span
+                class="services-marquee__sep">·</span
+              >
+              <span class="services-marquee__word" data-i18n="c:mq.maps">Google Maps</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="subtitle" data-i18n="p:testimonials.subtitle">Poverenje</span>
+          <h2 data-i18n="p:testimonials.h2">Šta klijenti kažu</h2>
+        </div>
+        <div class="google-reviews-grid reveal-up" role="list">
+          <article class="g-review-card reveal-up" role="listitem">
+            <div class="g-review-head">
+              <div class="g-avatar" aria-hidden="true">MJ</div>
+              <div class="g-profile">
+                <span class="g-name" data-i18n="p:testimonials.mj_name">Marko Jovanović</span>
+                <span class="g-badge" data-i18n="p:testimonials.mj_badge">2 recenzije</span>
+              </div>
+            </div>
+            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_5" title="5/5">
+              <span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star" aria-hidden="true">★</span>
+            </div>
+            <p class="g-text" data-i18n="p:testimonials.mj_quote">
+              CreateWebPlace nivo profesionalizma je na nivou koji retko srećemo. Sajt se učitava
+              ispod 1s, a konverzije su vidljivo bolje. Preporučujem.
+            </p>
+          </article>
+          <article class="g-review-card reveal-up" style="transition-delay: 0.05s" role="listitem">
+            <div class="g-review-head">
+              <div class="g-avatar g-avatar--2" aria-hidden="true">AS</div>
+              <div class="g-profile">
+                <span class="g-name" data-i18n="p:testimonials.as_name">Ana Stefanović</span>
+                <span class="g-badge" data-i18n="p:testimonials.as_badge">Prva recenzija</span>
+              </div>
+            </div>
+            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_5" title="5/5">
+              <span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star" aria-hidden="true">★</span>
+            </div>
+            <p class="g-text" data-i18n="p:testimonials.as_quote">
+              Jasna komunikacija, rokovi ispoštovani, dizajn tačno onakav kako smo zamislili. Tim
+              zna šta radi.
+            </p>
+          </article>
+          <article class="g-review-card reveal-up" style="transition-delay: 0.1s" role="listitem">
+            <div class="g-review-head">
+              <div class="g-avatar g-avatar--3" aria-hidden="true">FN</div>
+              <div class="g-profile">
+                <span class="g-name" data-i18n="p:testimonials.fn_name">Filip Nikolić</span>
+                <span class="g-badge" data-i18n="p:testimonials.fn_badge">5 recenzija</span>
+              </div>
+            </div>
+            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_4" title="4/5">
+              <span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star" aria-hidden="true">★</span><span
+                class="g-star"
+                aria-hidden="true">★</span
+              ><span class="g-star g-star--empty" aria-hidden="true">☆</span>
+            </div>
+            <p class="g-text" data-i18n="p:testimonials.fn_quote">
+              Dugo tražili pouzdanog partnera za web i SEO. Sada imamo merni setup i jasan rast.
+              Vredi svake investicije.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: About -->
+    <section id="about" class="section section-bg-pattern-b">
+      <div class="container">
+        <div class="about-flex">
+          <div class="about-text reveal-left">
+            <span class="subtitle" data-i18n="p:about.subtitle">O Nama</span>
+            <h2 data-i18n="p:about.h2">Vizija Digitalne Izvrsnosti</h2>
+            <p data-i18n="p:about.p">
+              Vaš partner za izradu i rast sajta na webu — od prve strukture stranica do izmerljivih
+              performansi. Jednostavan pristup, brza isporuka i tehnička disciplina koja služi
+              upitima, ne obrnuto.
+            </p>
+          </div>
+          <div class="stats-grid reveal-right">
+            <div class="stat-item">
+              <span class="number" data-target="50">0</span><span class="plus">+</span>
+              <p data-i18n="p:about.projects">Projekata</p>
+            </div>
+            <div class="stat-item">
+              <span class="number" data-target="99">0</span><span class="percent">%</span>
+              <p data-i18n="p:about.uptime">Uptime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

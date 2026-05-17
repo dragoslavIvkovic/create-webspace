@@ -1,20 +1,35 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# CreateWebPlace — sajt (Astro)
 
-# Run and deploy your AI Studio app
+Statički prikaz stranica + **Node server** za API (kontakt forma → [Resend](https://resend.com/docs/send-with-astro)).
 
-This contains everything you need to run your app locally.
+## Komande
 
-View your app in AI Studio: https://ai.studio/apps/258dd177-2f4a-4f3f-97bb-7004602d11df
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview   # lokalno testiranje SSR + statike kao u produkciji
+```
 
-## Run Locally
+## Kontakt forma i Resend
 
-**Prerequisites:**  Node.js
+1. Registruj se na [Resend](https://resend.com), kreiraj API ključ i verifikuj domen za **from** adresu.
+2. Kopiraj `.env.example` u `.env` i popuni:
 
+- `RESEND_API_KEY` — API ključ
+- `CONTACT_FROM` — npr. `CreateWebPlace <brief@tvoj-domen.rs>` (mora biti sa verifikovanog domena)
+- `CONTACT_TO` — adresa na koju stižu upiti
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+3. U produkciji mora da radi **Node proces** (ne čist statički CDN bez proxy-ja), npr.:
+
+```bash
+node dist/server/entry.mjs
+```
+
+Statički fajlovi su u `dist/client/`; server ih servira zajedno sa rutom **`POST /api/contact`**.
+
+## Ostalo
+
+`locales/` se pri `npm run dev` / `npm run build` kopira u `public/locales/`.
+
+Početna koristi optimizaciju slika (`astro:assets`). `astro.config.mjs`: `build.format: 'file'` (npr. `kontakt.html`).

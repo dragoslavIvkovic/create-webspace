@@ -1,0 +1,110 @@
+---
+interface Props {
+  isHome: boolean;
+  activeSection: 'services' | 'projects' | 'about' | 'contact' | null;
+  headerClass?: string;
+}
+
+const { isHome, activeSection, headerClass = '' } = Astro.props;
+const homeHref = isHome ? '#top' : 'index.html';
+
+const servicesA = activeSection === 'services' ? 'active' : undefined;
+const projectsA = activeSection === 'projects' ? 'active' : undefined;
+const aboutA = activeSection === 'about' ? 'active' : undefined;
+const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary' : 'btn-secondary';
+---
+
+<header id="header" class:list={[headerClass || false]}>
+  <div class="container nav-container">
+    <a href={homeHref} class="logo">Create<span>WebPlace</span></a>
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        <li><a href={homeHref} data-i18n="c:nav.home">Početna</a></li>
+        <li class="nav-item-dropdown">
+          <a href="usluge.html" class={servicesA} data-i18n="c:nav.services">Usluge</a>
+          <div class="dropdown-menu">
+            <a href="web-dizajn.html" data-i18n="c:dropdown.web_design">Web Dizajn</a>
+            <a href="web-shop.html" data-i18n="c:dropdown.web_shop">Web Shop</a>
+            <a href="seo-optimizacija.html" data-i18n="c:dropdown.seo">SEO Optimizacija</a>
+            <a href="local-seo.html" data-i18n="c:dropdown.local_seo">Local SEO</a>
+            <a href="geo-optimizacija.html" data-i18n="c:dropdown.geo">Geo Optimizacija</a>
+            <a href="hosting.html" data-i18n="c:dropdown.hosting">Hosting</a>
+            <a href="google-ads.html" data-i18n="c:dropdown.google_ads">Google Ads</a>
+            <a href="google-maps.html" data-i18n="c:dropdown.google_maps">Google Maps</a>
+            <a href="graficki-dizajn.html" data-i18n="c:dropdown.graphic_design">Grafički Dizajn</a>
+            <a href="digitalni-meni.html" data-i18n="c:dropdown.digital_menu">Digitalni Meni</a>
+          </div>
+        </li>
+        <li><a href="projekti.html" class={projectsA} data-i18n="c:nav.projects">Projekti</a></li>
+        <li><a href="o-nama.html" class={aboutA} data-i18n="c:nav.about">O Nama</a></li>
+        <li>
+          <a href="kontakt.html" class={contactDesktopClass} data-i18n="c:nav.contact">Kontakt</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="lang-switch" role="group" data-i18n-aria="c:aria.lang_group">
+      <button
+        type="button"
+        class="lang-switch__btn lang-switch__btn--flag"
+        data-cwp-lang="sr"
+        aria-label="Srpski"
+        data-i18n-aria="c:aria.lang_switch_sr"
+        title="Srpski"
+      >
+        <span class="lang-switch__flag" aria-hidden="true">🇷🇸</span>
+      </button>
+      <button
+        type="button"
+        class="lang-switch__btn lang-switch__btn--flag"
+        data-cwp-lang="en"
+        aria-label="Engleski"
+        data-i18n-aria="c:aria.lang_switch_en"
+        title="Engleski"
+      >
+        <span class="lang-switch__flag" aria-hidden="true">🇬🇧</span>
+      </button>
+    </div>
+    <button
+      type="button"
+      class="mobile-nav-toggle"
+      aria-label="Menu"
+      data-i18n-aria="c:aria.mobile_menu"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Nav Overlay — aktivna stavka samo na desktopu kao u originalu -->
+<div class="mobile-nav-overlay">
+  <ul class="mobile-nav-list">
+    <li><a href={homeHref} data-i18n="c:nav.home">Početna</a></li>
+    <li class="mobile-dropdown">
+      <div class="mobile-dropdown-header">
+        <a href="usluge.html" data-i18n="c:nav.services">Usluge</a>
+        <span class="dropdown-arrow"></span>
+      </div>
+      <ul class="mobile-submenu">
+        <li><a href="web-dizajn.html" data-i18n="c:dropdown.web_design">Web Dizajn</a></li>
+        <li><a href="web-shop.html" data-i18n="c:dropdown.web_shop">Web Shop</a></li>
+        <li><a href="seo-optimizacija.html" data-i18n="c:dropdown.seo">SEO Optimizacija</a></li>
+        <li><a href="local-seo.html" data-i18n="c:dropdown.local_seo">Local SEO</a></li>
+        <li><a href="geo-optimizacija.html" data-i18n="c:dropdown.geo">Geo Optimizacija</a></li>
+        <li><a href="hosting.html" data-i18n="c:dropdown.hosting">Hosting</a></li>
+        <li><a href="google-ads.html" data-i18n="c:dropdown.google_ads">Google Ads</a></li>
+        <li><a href="google-maps.html" data-i18n="c:dropdown.google_maps">Google Maps</a></li>
+        <li>
+          <a href="graficki-dizajn.html" data-i18n="c:dropdown.graphic_design">Grafički Dizajn</a>
+        </li>
+        <li>
+          <a href="digitalni-meni.html" data-i18n="c:dropdown.digital_menu">Digitalni Meni</a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="projekti.html" data-i18n="c:nav.projects">Projekti</a></li>
+    <li><a href="o-nama.html" data-i18n="c:nav.about">O Nama</a></li>
+    <li><a href="kontakt.html" data-i18n="c:nav.contact">Kontakt</a></li>
+  </ul>
+</div>

@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'SEO Optimizacija | CreateWebPlace - Rangirajte se na Prvom Mestu'}
+  description={'Dominirajte u pretragama uz naše napredne SEO strategije. Tehnička optimizacija, autoritativan sadržaj i strateško pozicioniranje za dugoročni rast.'}
+  dataPage={'seo-optimizacija'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Search Dominance</span>
+        <h1 data-i18n-html="p:hero_h_html">SEO <span class="gradient-text">Strategija</span></h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Pozicioniramo vaš brend na vrh pretrage kroz napredni inženjering autoriteta i tehničku
+          superiornost.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Vidljivost koja generiše rast</h2>
+          <p data-i18n-html="p:intro_html">
+            U digitalnom prostoru, ako niste na prvoj strani Google pretrage, vi praktično ne
+            postojite za 90% vaših potencijalnih klijenata. SEO u CreateWebPlace-u nije samo
+            "ubacivanje ključnih reči" — to je sveobuhvatna strategija usklađivanja vašeg digitalnog
+            prisustva sa najnovijim algoritmima veštačke inteligencije.
+          </p>
+
+          <h3 data-i18n="p:s1_title">Tehnički SEO i Arhitektura Sajta</h3>
+          <p data-i18n-html="p:s1_html">
+            Sve počinje od koda. Mi vršimo duboku reviziju tehničkih aspekata vašeg sajta — od
+            brzine učitavanja i mobilne prilagođenosti, do strukture podataka (Schema markup) koja
+            pomaže pretraživačima da razumeju vaš sadržaj. Rešavamo probleme sa indeksiranjem,
+            optimizujemo budžet za "crawling" i osiguravamo da svaki tehnički parametar bude u
+            savršenom skladu sa Google smernicama.
+          </p>
+
+          <h3 data-i18n="p:s2_title">Autoritativan Sadržaj i Semantika</h3>
+          <p data-i18n-html="p:s2_html">
+            Google danas ne traži reči, već odgovore. Kreiramo strategiju sadržaja koja se fokusira
+            na semantičku pretragu i autoritet teme (Topic Authority). Pišemo tekstove koji su
+            duboki, edukativni i rešavaju stvarne probleme korisnika. Ovakav pristup ne samo da vas
+            rangira više, već vas pozicionira kao neprikosnovenog lidera u vašoj industriji, gradeći
+            poverenje kod klijenata pre nego što vas uopšte kontaktiraju.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Izgradnja Digitalnog Autoriteta (Backlinks)</h3>
+          <p data-i18n-html="p:s3_html">
+            Vaša pozicija na vrhu zavisi od toga koliko vas digitalni svet smatra relevantnim. Naš
+            tim radi na strateškom povezivanju vašeg sajta sa autoritativnim izvorima u vašoj niši.
+            Koristimo samo "white-hat" tehnike koje osiguravaju dugoročnu stabilnost vašeg
+            rangiranja, štiteći vas od bilo kakvih algoritamskih kazni i osiguravajući konstantan
+            priliv organskog saobraćaja.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm variant="compact" defaultCategory="seo" source="seo-optimizacija.html" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

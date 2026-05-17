@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Google Maps | CreateWebPlace'}
+  dataPage={'google-maps'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Local Presence</span>
+        <h1 data-i18n-html="p:hero_h_html">
+          Google Maps <span class="gradient-text">Dominacija</span>
+        </h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Pozicioniramo vaš biznis u sam vrh lokalnih rezultata pretrage tamo gde vas klijenti
+          najviše trebaju.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Budite prvi izbor u svom komšiluku</h2>
+          <p data-i18n-html="p:intro_html">
+            U eri mobilne pretrage, vaša pozicija na Google mapama često je presudnija od ranga
+            samog web sajta. Kada potencijalni klijent traži uslugu "u blizini", on želi brzo,
+            pouzdano i lokalno rešenje. Naša strategija optimizacije za Google mape osigurava da
+            upravo vi budete taj prvi izbor.
+          </p>
+
+          <h3 data-i18n="p:s1_title">Kompletna Optimizacija Profila (GBP)</h3>
+          <p data-i18n-html="p:s1_html">
+            Vaš Google Business Profile (GBP) je vaša digitalna izloba. Mi vršimo stoprocentnu
+            optimizaciju svakog parametra — od preciznih kategorija i atributa, do strateškog
+            popunjavanja opisa koji sadrže relevantne lokalne ključne reči. Osiguravamo da su vaši
+            podaci (naziv, adresa, telefon) konzistentni na celom internetu, što je ključni signal
+            poverenja za Google algoritme.
+          </p>
+
+          <h3 data-i18n="p:s2_title">Strateško Upravljanje Recenzijama i Reputacijom</h3>
+          <p data-i18n-html="p:s2_html">
+            Recenzije nisu samo dokaz kvaliteta; one su gorivo za rangiranje na mapama. Pomažemo vam
+            da izgradite sistem za prikupljanje pozitivnih povratnih informacija od klijenata i
+            savetujemo vas kako da na njih odgovarate na način koji dodatno podiže vaš autoritet.
+            Visoka ocena i aktivna interakcija sa korisnicima direktno signaliziraju Google-u da je
+            vaš biznis najrelevantniji odgovor za lokalne upite.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Lokalni Citati i Geografski Autoritet</h3>
+          <p data-i18n-html="p:s3_html">
+            Da biste dominirali mapama, Google mora da vas prepozna kao entitet koji je čvrsto
+            usidren u svojoj lokaciji. Mi radimo na izgradnji mreže lokalnih citata i pominjanja
+            vašeg biznisa na autoritativnim lokalnim direktorijumima. Povezujemo vaš profil sa
+            geografski relevantnim sadržajem, čime širimo radijus vaše vidljivosti na mapi i
+            osiguravamo da se pojavljujete u "Local Pack" rezultatima čak i za šire geografsko
+            područje.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm
+                variant="compact"
+                defaultCategory="google-maps"
+                source="google-maps.html"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

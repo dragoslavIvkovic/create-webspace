@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={'O Nama | CreateWebPlace - Tim koji Pomera Granice'}
+  description={'Upoznajte CreateWebPlace tim. Mi smo inženjeri, dizajneri i stratezi posvećeni izgradnji vrhunskih digitalnih proizvoda koji donose poslovni rast.'}
+  canonical={'https://createwebplace.rs/o-nama.html'}
+  dataPage={'o-nama'}
+  bodyClass={'subpage'}
+  activeSection={'about'}
+  isHome={false}
+>
+  <main>
+    <!-- Hero O Nama -->
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Naša Priča</span>
+        <h1 data-i18n-html="p:hero_h_html">
+          Inženjering <br /><span class="gradient-text">Bez Kompromisa</span>
+        </h1>
+        <p class="hero-subtext" data-i18n="p:lead">
+          Mi nismo samo razvojni tim. Mi smo tvoj tehnološki partner u izgradnji digitalne
+          budućnosti.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="text-content">
+          <h2 data-i18n="p:h2_who">Ko smo mi?</h2>
+          <p data-i18n="p:p1">
+            CreateWebPlace je multidisciplinarna digitalna agencija sa sedištem u Beogradu. Naš tim
+            čine iskusni inženjeri, dizajneri i stratezi koji veruju da tehnologija treba da bude
+            nevidljiva podrška vrhunskom korisničkom iskustvu.
+          </p>
+          <p data-i18n="p:p2">
+            Ne pravimo samo kod. Mi rešavamo poslovne probleme kroz inovativne digitalne
+            arhitekture.
+          </p>
+          <div class="check-list check-list--spaced-top">
+            <li data-i18n="p:li1">Integritet u svakom pikselu</li>
+            <li data-i18n="p:li2">Brzina kao imperativ</li>
+            <li data-i18n="p:li3">Dizajn vođen konverzijom</li>
+          </div>
+        </div>
+        <div class="visual-content">
+          <div class="stat-grid-simple">
+            <div class="stat-item">
+              <span class="number">150+</span>
+              <p data-i18n="p:stat1">Uspešnih Projekata</p>
+            </div>
+            <div class="stat-item">
+              <span class="number">10+</span>
+              <p data-i18n="p:stat2">Godina Iskustva</p>
+            </div>
+            <div class="stat-item">
+              <span class="number">99.9%</span>
+              <p data-i18n="p:stat3">Uptime Garancija</p>
+            </div>
+            <div class="stat-item">
+              <span class="number">24/7</span>
+              <p data-i18n="p:stat4">Puna Podrška</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

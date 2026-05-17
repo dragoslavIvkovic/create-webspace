@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={'Projekti | CreateWebPlace - Naš Portfolio'}
+  canonical={'https://createwebplace.rs/projekti.html'}
+  dataPage={'projekti'}
+  bodyClass={'subpage'}
+  activeSection={'projects'}
+  isHome={false}
+>
+  <main>
+    <!-- Hero Projekti -->
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:subtitle">Galerija radova</span>
+        <h1 data-i18n-html="p:h_html">
+          Projekti koji <br /><span class="gradient-text">Prave Razliku</span>
+        </h1>
+        <p class="hero-subtext" data-i18n="p:lead">
+          Pregled naših najznačajnijih ostvarenja u svetu digitalnog inženjeringa i premium dizajna.
+        </p>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="portfolio-grid">
+          <a
+            href="https://adaptacijastanova.online/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--embed">
+              <div class="embed-site-preview">
+                <iframe
+                  src="https://adaptacijastanova.online/"
+                  data-i18n-iframetitle="p:adapt_iframe"
+                  title="Pregled sajta Adaptacija Stanova"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="item-info">
+              <span class="item-category" data-i18n="p:live">LIVE</span>
+              <h3 data-i18n="p:adapt_title">Adaptacija Stanova</h3>
+              <p data-i18n="p:adapt_sub">
+                Remix sajt — Beograd, portfelj i kustoski ton za adaptaciju stanova.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://vodoinstalater.store/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--embed">
+              <div class="embed-site-preview">
+                <iframe
+                  src="https://vodoinstalater.store/"
+                  data-i18n-iframetitle="p:vod_iframe"
+                  title="Pregled sajta Majstor"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="item-info">
+              <span class="item-category" data-i18n="p:live">LIVE</span>
+              <h3 data-i18n="p:vod_title">vodoinstalater.store</h3>
+              <p data-i18n="p:vod_sub">
+                Glassmorphism landing — majstori, hitne intervencije, ceo Beograd.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://vetrecord.app/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--vet-tile" aria-hidden="true">
+              <div class="vet-tile">
+                <span class="vet-tile-kicker" data-i18n="p:vet_kicker">Pet health</span>
+                <span class="vet-tile-name" data-i18n="p:vet_name_tile">Vet Record</span>
+              </div>
+            </div>
+            <div class="item-info">
+              <span class="item-category" data-i18n="p:live">LIVE</span>
+              <h3 data-i18n="p:vet_title">Vet Record</h3>
+              <p data-i18n="p:vet_sub">
+                Pet health tracker — zdravstvena istorija, vakcine, lekovi; iOS i Android.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.xmilioner.mathtutor"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--store" aria-hidden="true">
+              <div class="store-tile">
+                <span class="store-tile-badge" data-i18n="p:math_badge">Google Play</span>
+                <span class="store-tile-name" data-i18n="p:math_name">School Math Pro</span>
+              </div>
+            </div>
+            <div class="item-info">
+              <span class="item-category" data-i18n="p:app_tag">APP</span>
+              <h3 data-i18n="p:math_title">School Math Pro</h3>
+              <p data-i18n="p:math_sub">
+                SmartSolution — digitalni tutor, matematika korak po korak, bez reklama i
+                distrakcija.
+              </p>
+            </div>
+          </a>
+          <a
+            href="https://www.directchinagoods.com/"
+            class="portfolio-item portfolio-item--link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="item-visual item-visual--embed">
+              <div class="embed-site-preview">
+                <iframe
+                  src="https://www.directchinagoods.com/"
+                  data-i18n-iframetitle="p:dc_iframe"
+                  title="Pregled sajta Direct China Goods"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="item-info">
+              <span class="item-category" data-i18n="p:live">LIVE</span>
+              <h3 data-i18n="p:dc_title">Direct China Goods</h3>
+              <p data-i18n="p:dc_sub">
+                Gateway za poslovanje s Kine — B2B i pouzdan pristup tržištu.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

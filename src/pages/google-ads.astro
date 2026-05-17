@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Google Ads | CreateWebPlace'}
+  dataPage={'google-ads'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Performance Marketing</span>
+        <h1 data-i18n-html="p:hero_h_html">Google <span class="gradient-text">Ads</span></h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Maksimizujemo vaš povrat investicije kroz precizno targetiranje i naučno optimizovane
+          prodajne kampanje.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Preciznost koja donosi profit</h2>
+          <p data-i18n-html="p:intro_html">
+            U svetu digitalnog oglašavanja, nije teško potrošiti budžet — teško je pretvoriti svaki
+            uloženi evro u profit. Naš pristup Google Ads-u (PPC) temelji se na rigoroznoj analizi
+            podataka i stalnom testiranju hipoteza kako bismo osigurali da vaš brend vidi prava
+            osoba u pravom trenutku.
+          </p>
+
+          <h3 data-i18n="p:s1_title">Strateško Targetiranje i Analiza Namere</h3>
+          <p data-i18n-html="p:s1_html">
+            Razumemo razliku između informativne i prodajne namere korisnika. Umesto širokog
+            targetiranja koje rasipa budžet, mi se fokusiramo na ključne reči koje signaliziraju
+            spremnost na akciju. Svaka kampanja započinje dubokim istraživanjem tržišta i
+            konkurencije, omogućavajući nam da identifikujemo prilike koje drugi previđaju i
+            pozicioniramo vas tamo gde je verovatnoća konverzije najveća.
+          </p>
+
+          <h3 data-i18n="p:s2_title">A/B Testiranje i Optimizacija Konverzije</h3>
+          <p data-i18n-html="p:s2_html">
+            Oglasi u CreateWebPlace-u nikada nisu "gotovi". Stalno sprovodimo A/B testiranje
+            naslova, opisa i landing stranica kako bismo kontinuirano smanjivali cenu po kliku (CPC)
+            i povećavali stopu konverzije. Verujemo u evolutivni pristup marketingu — svaka nedelja
+            donosi nove podatke koji nam omogućavaju da još preciznije usmerimo vaš budžet ka
+            kanalima i porukama koje donose najbolje rezultate.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Transparentno Izveštavanje i Skaliranje</h3>
+          <p data-i18n-html="p:s3_html">
+            Za nas, uspeh kampanje meri se isključivo kroz vaš poslovni rast. Pružamo vam kristalno
+            jasne izveštaje koji pokazuju tačan ROI vaših kampanja. Kada pronađemo "pobedničku"
+            formulu, pomažemo vam da skalirate budžet na siguran i predvidiv način, pretvarajući
+            Google Ads u stabilan i profitabilan generator novih klijenata za vaš biznis.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm
+                variant="compact"
+                defaultCategory="google-ads"
+                source="google-ads.html"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

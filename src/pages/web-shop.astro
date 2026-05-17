@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Web Shop | CreateWebPlace - E-Commerce Rešenja visoke konverzije'}
+  description={'Izrada modernih web prodavnica koje donose profit. Optimizovane platforme za brzu prodaju, sigurnost i vrhunsko korisničko iskustvo na svim uređajima.'}
+  dataPage={'web-shop'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">E-Commerce Inženjering</span>
+        <h1 data-i18n-html="p:hero_h_html">
+          Napredne Web <span class="gradient-text">Prodavnice</span>
+        </h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Gradimo profitabilne e-commerce platforme fokusirane na maksimalnu brzinu i besprekorno
+          iskustvo kupovine.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Prodaja koja ne poznaje granice</h2>
+          <p data-i18n-html="p:intro_html">
+            U svetu online trgovine, razlika između posetioca i kupca meri se u milisekundama i
+            intuitivnosti procesa. Mi ne pravimo samo "katalog proizvoda" — mi gradimo prodajne
+            mašine koje su optimizovane za visoku konverziju od prvog trenutka.
+          </p>
+
+          <h3 data-i18n="p:s1_title">Arhitektura Visoke Konverzije</h3>
+          <p data-i18n-html="p:s1_html">
+            Svaka sekunda kašnjenja u učitavanju smanjuje prodaju za 7%. Zato naše prodavnice
+            koriste najnaprednije tehnologije keširanja i optimizacije koda. Proces kupovine je
+            sveden na minimum koraka, eliminisanjem svih distrakcija koje bi mogle da odvrate kupca
+            od finalizacije porudžbine. Fokusiramo se na psihologiju kupca, od strateškog
+            postavljanja dugmadi do jasne komunikacije poverenja.
+          </p>
+
+          <h3 data-i18n="p:s2_title">Skalabilnost i Sigurnost</h3>
+          <p data-i18n-html="p:s2_html">
+            Vaša prodavnica mora da raste zajedno sa vašim biznisom. Naša rešenja su potpuno
+            skalabilna, sposobna da podrže hiljade proizvoda i desetine hiljada istovremenih
+            posetilaca bez gubitka performansi. Sigurnost podataka vaših korisnika je apsolutni
+            prioritet — implementiramo najstrože protokole zaštite i sigurne sisteme za naplatu
+            karticama koji ulivaju poverenje kupcima.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Mobilna Dominacija (m-Commerce)</h3>
+          <p data-i18n-html="p:s3_html">
+            Više od 80% online kupovina danas započinje na telefonu. Naše e-commerce platforme su
+            dizajnirane sa "mobile-first" pristupom, pružajući korisnicima na mobilnim uređajima
+            iskustvo koje je fluidno poput nativne aplikacije. Svi elementi, od filtriranja
+            proizvoda do unosa podataka za dostavu, optimizovani su za lako korišćenje u pokretu.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm variant="compact" defaultCategory="web-shop" source="web-shop.html" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

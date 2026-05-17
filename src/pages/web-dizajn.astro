@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Web Dizajn | CreateWebPlace - Premium UI/UX Rešenja'}
+  description={'Kreiramo moderne, responzivne i visoko-konvertujuće web sajtove sa fokusom na vrhunsko korisničko iskustvo (UX) i vizuelni identitet koji prodaje.'}
+  dataPage={'web-dizajn'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Arhitektura & Estetika</span>
+        <h1 data-i18n-html="p:hero_h_html">
+          Premium Web <span class="gradient-text">Dizajn</span>
+        </h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Projektujemo digitalne sisteme koji spajaju inženjersku preciznost sa vrhunskim vizuelnim
+          identitetom.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Nauka iza svakog piksela</h2>
+          <p data-i18n-html="p:intro_html">
+            Web dizajn u CreateWebPlace-u nije samo crtanje lepih stranica; to je kompleksan proces
+            inženjeringa korisničkog iskustva. Svaki projekat započinjemo dubokom analizom vašeg
+            poslovanja, identifikovanjem ključnih tačaka interakcije i definisanjem korisničkih
+            putanja koje maksimizuju konverziju. Naš cilj je da stvorimo fluidno digitalno okruženje
+            u kojem se korisnik oseća prirodno i vođeno.
+          </p>
+
+          <h3 data-i18n="p:s1_title">UX Istraživanje i Arhitektura Informacija</h3>
+          <p data-i18n-html="p:s1_html">
+            Pre nego što povučemo prvu liniju dizajna, gradimo čvrst temelj. To podrazumeva
+            kreiranje mapiranja sajta i wireframe-ova koji definišu hijerarhiju informacija.
+            Razumemo kako se oko kreće po ekranu i koristimo te principe da bismo najvažnije poruke
+            postavili tamo gde će imati najveći uticaj. Rezultat je sajt na kojem se klijent ne
+            gubi, već sa lakoćom pronalazi ono što mu je potrebno.
+          </p>
+
+          <h3 data-i18n="p:s2_title">UI Estetika i Brending</h3>
+          <p data-i18n-html="p:s2_html">
+            Vaš vizuelni identitet je vaša digitalna vizit karta. Razvijamo moderan, minimalistički
+            UI koji odiše autoritetom. Koristimo tipografiju svetske klase i pažljivo odabrane
+            palete boja koje komuniciraju vrednosti vašeg brenda. Naš dizajn je bezvremenski — ne
+            pratimo prolazne trendove, već gradimo estetiku koja će izgledati premium i godinama
+            nakon lansiranja.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Responzivnost i Performanse</h3>
+          <p data-i18n-html="p:s3_html">
+            U svetu "mobile-first" pretrage, sajt mora raditi savršeno na svakom uređaju. Naš kod je
+            lagan i optimizovan, što osigurava munjevito učitavanje. Svaki element dizajna je
+            prilagođen dodiru, osiguravajući da korisnici na telefonima imaju jednako bogato
+            iskustvo kao i oni na desktop računarima.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm
+                variant="compact"
+                defaultCategory="web-dizajn"
+                source="web-dizajn.html"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

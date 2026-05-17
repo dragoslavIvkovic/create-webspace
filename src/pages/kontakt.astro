@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Kontakt | CreateWebPlace'}
+  description={'Kontaktirajte CreateWebPlace — pošaljite upit putem forme.'}
+  canonical={'https://createwebplace.rs/kontakt.html'}
+  dataPage={'kontakt'}
+  bodyClass={'subpage'}
+  activeSection={'contact'}
+  isHome={false}
+>
+  <main id="main">
+    <section
+      class="section section-bg-pattern-b kontakt-page-section contact-section"
+      aria-labelledby="kontakt-heading"
+    >
+      <div class="container">
+        <header class="section-header center contact-page-head reveal-up">
+          <span class="subtitle" style="color: var(--main-color);" data-i18n="p:kontakt.kicker"
+            >Kontakt</span
+          >
+          <h1 id="kontakt-heading" data-i18n="p:kontakt.h1">
+            Pošaljite upit za sajt ili digitalni projekat
+          </h1>
+          <p class="contact-page-lead" data-i18n="p:kontakt.lead">
+            Odgovaramo brzo. Napišite cilj, rokove i linkove (reference, konkurencija, postojeći
+            sajt) — što više konteksta, tačnija ponuda.
+          </p>
+        </header>
+
+        <div class="cwp-contact-page-card reveal-up" style="transition-delay: 0.05s;">
+          <ContactForm variant="page" defaultCategory="general" source="kontakt.html" />
+          <p class="cwp-contact-trust-footnote" data-i18n="p:kontakt.trust_note">
+            Vaše podatke čuvamo poverljivo i ne prodajemo ih trećim stranama.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

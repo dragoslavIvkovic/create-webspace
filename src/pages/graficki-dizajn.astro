@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Grafički Dizajn | CreateWebPlace'}
+  dataPage={'graficki-dizajn'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Visual Identity</span>
+        <h1 data-i18n-html="p:hero_h_html">Brend <span class="gradient-text">Arhitektura</span></h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Kreiramo vizuelne jezike koji pričaju priču vašeg brenda sa autoritetom, elegancijom i
+          trajnom vrednošću.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="service-detail-text reveal-up">
+          <h2 data-i18n="p:h2">Dizajn koji definiše autoritet</h2>
+          <p data-i18n-html="p:intro_html">
+            U moru generičkih informacija, vaš vizuelni identitet je ono što vas izdvaja i gradi
+            trenutno poverenje kod klijenata. Za nas, grafički dizajn nije samo "ulepšavanje" — to
+            je strateški alat koji komunicira vašu profesionalnost, stabilnost i jedinstvenu
+            vrednost na tržištu.
+          </p>
+
+          <h3 data-i18n="p:s1_title">Strateški Razvoj Vizuelnog Identiteta</h3>
+          <p data-i18n-html="p:s1_html">
+            Svaki uspešan brend počinje od jasne strategije. Mi ne kreiramo samo logotipe; mi
+            gradimo sveobuhvatne vizuelne sisteme. Analiziramo psihologiju vaše ciljne publike kako
+            bismo odabrali boje, oblike i tipografiju koji će izazvati željenu emocionalnu reakciju.
+            Naš cilj je da stvorimo identitet koji je prepoznatljiv, konzistentan i koji se lako
+            adaptira na sve digitalne i štampane medije.
+          </p>
+
+          <h3 data-i18n="p:s2_title">Brend Knjiga i Standardi Komunikacije</h3>
+          <p data-i18n-html="p:s2_html">
+            Snaga brenda leži u njegovoj doslednosti. Uz svaki projekat dizajna, razvijamo detaljne
+            smernice za korišćenje vašeg vizuelnog identiteta. Definišemo kako vaš brend treba da
+            "zvuči" i "izgleda" u svakoj situaciji — od društvenih mreža do zvanične dokumentacije.
+            Ovakva disciplina osigurava da vaša poruka uvek bude jasna i da se vaš autoritet gradi
+            sa svakim novim kontaktom sa klijentom.
+          </p>
+
+          <h3 data-i18n="p:s3_title">Dugoročna Vrednost i Evolucija Brendinga</h3>
+          <p data-i18n-html="p:s3_html">
+            Dobar dizajn je bezvremenski. Naš pristup se fokusira na estetiku koja ne zastareva sa
+            sledećim sezonskim trendom. Gradimo brendove koji su relevantni danas, ali i spremni za
+            budućnost. Pratimo rast vašeg poslovanja i pomažemo vam da evoluirate svoj vizuelni
+            jezik kako se širite na nova tržišta, osiguravajući da vaš vizuelni kapital raste
+            zajedno sa vašim profitom.
+          </p>
+
+          <div class="cta-mini cta-mini--contact reveal-up">
+            <div class="cwp-contact-shell cwp-contact-shell--inline">
+              <ContactForm
+                variant="compact"
+                defaultCategory="graficki-dizajn"
+                source="graficki-dizajn.html"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

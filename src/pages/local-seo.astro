@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout
+  title={'Local SEO | CreateWebPlace'}
+  dataPage={'local-seo'}
+  bodyClass={'subpage'}
+  headerClass={'scrolled'}
+  activeSection={'services'}
+  isHome={false}
+>
+  <main>
+    <section class="section page-hero">
+      <div class="container">
+        <span class="subtitle" data-i18n="p:hero_k">Lokalna Dominacija</span>
+        <h1 data-i18n-html="p:hero_h_html">Local <span class="gradient-text">SEO</span></h1>
+        <p class="hero-subtext" data-i18n="p:hero_sub">
+          Postanite prvi izbor u svom gradu. Optimizujemo vaše prisustvo tamo gde vas klijenti traže
+          — na Google Mapama i lokalnim pretragama.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <div class="text-content reveal-up">
+          <h2>Budite viđeni u pravom trenutku</h2>
+          <p>
+            Kada neko u vašoj blizini traži uslugu koju nudite, vi želite da budete na samom vrhu.
+            Local SEO nije samo postavljanje na mapu; to je strateško građenje poverenja i
+            vidljivosti unutar vaše zajednice.
+          </p>
+          <p>
+            Pomažemo vam da preteknete konkurenciju i pretvorite "ljude koji traže" u "ljude koji
+            kupuju".
+          </p>
+        </div>
+        <div class="visual-content reveal-up">
+          <div class="stat-grid-simple">
+            <div class="stat-item">
+              <span class="number" data-target="88">0</span>%
+              <p>Korisnika poseti radnju u roku od 24h nakon pretrage</p>
+            </div>
+            <div class="stat-item">
+              <span class="number" data-target="46">0</span>%
+              <p>Svih Google pretraga ima lokalnu nameru</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background: var(--card-bg);">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="subtitle">Naš Pristup</span>
+          <h2>Strategija za Lokalni Rast</h2>
+        </div>
+        <div class="services-grid-new">
+          <div class="sv3-card reveal-up">
+            <div class="sv3-content">
+              <h3>Google Profile (GMB)</h3>
+              <p>
+                Kompletna optimizacija vašeg Google Business profila kako biste se pojavili u
+                čuvenom "Local Pack" rezultatu.
+              </p>
+            </div>
+          </div>
+          <div class="sv3-card reveal-up">
+            <div class="sv3-content">
+              <h3>Upravljanje Recenzijama</h3>
+              <p>
+                Strategije za prikupljanje autentičnih pozitivnih ocena koje su ključni faktor
+                rangiranja i poverenja.
+              </p>
+            </div>
+          </div>
+          <div class="sv3-card reveal-up">
+            <div class="sv3-content">
+              <h3>Lokalni Citati</h3>
+              <p>
+                Osiguravamo da su vaši podaci (NAP - Name, Address, Phone) konzistentni na celom
+                internetu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section service-contact-cta" aria-label="Kontakt forma">
+      <div class="container">
+        <div class="cwp-contact-shell cwp-contact-shell--section reveal-up">
+          <ContactForm variant="page" defaultCategory="local-seo" source="local-seo.html" />
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
