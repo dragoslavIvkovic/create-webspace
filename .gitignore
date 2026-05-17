@@ -9,3 +9,6 @@ coverage/
 .env.local
 __pycache__/
 
+# Kopija od scripts/sync-public.mjs (npm predev / prebuild)
+public/locales/
+

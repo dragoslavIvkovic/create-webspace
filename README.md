@@ -30,6 +30,6 @@ Statički fajlovi su u `dist/client/`; server ih servira zajedno sa rutom **`POS
 
 ## Ostalo
 
-`locales/` se pri `npm run dev` / `npm run build` kopira u `public/locales/`.
+`locales/` se pri `npm run dev` / `npm run build` kopira u `public/locales/` (ta fascikla je u `.gitignore`; posle klona uradi `npm install` pa `npm run dev` ili `npm run build` da se JSON ponovo iskopira).
 
 Početna koristi optimizaciju slika (`astro:assets`). `astro.config.mjs`: `build.format: 'file'` (npr. `kontakt.html`).

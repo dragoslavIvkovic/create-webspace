@@ -1364,15 +1364,6 @@ img {
   display: block;
 }
 
-/* App store ikona — cover reže okruglost; contain + tamna pozadina */
-.item-visual--app .portfolio-thumb img {
-  object-fit: contain;
-  object-position: center;
-  padding: clamp(20px, 6%, 40px);
-  background:
-    radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.06) 0%, transparent 55%), #121d2c;
-}
-
 .item-info {
   padding: 30px;
   background: #ffffff;
