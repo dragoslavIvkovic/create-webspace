@@ -132,6 +132,8 @@
     if (meta.title) document.title = meta.title;
     var md = document.querySelector('meta[name="description"]');
     if (md && meta.description) md.setAttribute('content', meta.description);
+    var mk = document.querySelector('meta[name="keywords"]');
+    if (mk && meta.keywords) mk.setAttribute('content', meta.keywords);
   }
 
   function applyBundle(bundle, lang) {
@@ -172,6 +174,13 @@
       if (!key) return;
       var s = resolveKey(bundle, key);
       if (s != null) el.setAttribute('alt', s);
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (!key) return;
+      var s = resolveKey(bundle, key);
+      if (s != null && 'placeholder' in el) el.placeholder = s;
     });
 
     document.querySelectorAll('iframe[data-i18n-iframetitle]').forEach(function (el) {

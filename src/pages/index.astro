@@ -4,34 +4,33 @@ import { Image } from 'astro:assets';
 ---
 
 <BaseLayout
-  title={'CreateWebPlace | Profesionalna izrada sajtova i online prodavnica'}
-  description={'CreateWebPlace projektuje, razvija i objavljuje brze, pouzdane poslovne sajtove i web prodavnice — UX, performanse, SEO, hosting i integracije. Pokrenite sajt koji donosi upite.'}
-  keywords={'izrada web sajtova, mobilne aplikacije iOS Android, web dizajn Srbija, digitalna agencija, SEO optimizacija'}
+  title={'CreateWebPlace | Web stranice i mobilne aplikacije — glavna SEO tačka'}
+  description={'Imperativ su kvalitetna web stranica i mobilna aplikacija: to je glavna SEO tačka za organiku i upite. CreateWebPlace projektuje, gradi i objavljuje sajtove, prodavnice i mobilna iskustva — UX, performanse, tehnički SEO, hosting i integracije.'}
+  keywords={'web stranice SEO, mobilne aplikacije SEO, izrada web sajtova, iOS Android aplikacije, web dizajn Srbija, digitalna agencija, SEO optimizacija'}
   canonical={'https://createwebplace.rs/index.html'}
   dataPage={'index'}
   bodyId={'top'}
   activeSection={null}
   isHome={true}
-  showPreloader={true}
 >
   <Fragment slot="head">
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://createwebplace.rs/" />
     <meta
       property="og:title"
-      content="CreateWebPlace | Izrada sajtova koji grade poverenje i upite"
+      content="CreateWebPlace | Web, mobilne aplikacije — imperativ za SEO"
     />
     <meta
       property="og:description"
-      content="Dizajn, razvoj i objava poslovnih sajtova i prodavnica — brzo učitavanje, jasna ponuda, SEO i integracije. Partner za lansiranje na webu."
+      content="Web stranice i mobilne aplikacije su imperativ — srž SEO‑a koji donosi organiku. Dizajn, razvoj i objava uz brzinu, jasnu strukturu i tehnički SEO."
     />
     <meta property="og:image" content="https://createwebplace.rs/assets/og-image.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://createwebplace.rs/" />
-    <meta property="twitter:title" content="CreateWebPlace | Izrada profesionalnih sajtova" />
+    <meta property="twitter:title" content="CreateWebPlace | Web i mobilne aplikacije za SEO" />
     <meta
       property="twitter:description"
-      content="Od strukture i dizajna do objave: sajtovi i online prodavnice prilagođeni vašem biznisu."
+      content="Uložite prvo u web i mobilne aplikacije — to je glavna SEO tačka. Sajtovi, prodavnice i mobilna iskustva prilagođeni vašem biznisu."
     />
     <script type="application/ld+json" is:inline>
       {
@@ -63,7 +62,7 @@ import { Image } from 'astro:assets';
       }
     </script>
   </Fragment>
-  <main>
+  <main id="main-content">
     <!-- Section 1: Hero -->
     <section id="hero" class="hero-section">
       <div class="hero-bg-wrapper">
@@ -75,15 +74,17 @@ import { Image } from 'astro:assets';
             <span
               class="subtitle hero-subtitle"
               data-i18n="p:hero.subtitle"
-              style="color: var(--main-color);">Izrada i lansiranje sajtova</span
+              style="color: var(--main-color);"
+              >Web stranice i mobilne aplikacije — imperativ za SEO</span
             >
             <h1 class="reveal-text" data-i18n="p:hero.h1">
-              Napravite sajt na koji se klijenti oslone — brz, jasan i spreman za upite.
+              Uložite u sajt i mobilnu aplikaciju: to je glavna SEO tačka koja nosi organiku i
+              upite.
             </h1>
             <p class="hero-subline reveal-up" data-i18n="p:hero.subline">
-              Projektujemo, građimo i objavljujemo poslovne sajtove i web prodavnice: jasno
-              pozicioniranje, uredan dizajn i merljive performanse — bez generičkih šablona koji
-              liče na hiljadu drugih sajtova.
+              Projektujemo, građimo i objavljujemo poslovne sajtove, web prodavnice i mobilna
+              iskustva koja pretraživači mogu pouzdano da indeksiraju — jasno pozicioniranje, uredan
+              dizajn i merljive performanse, bez generičkih šablona.
             </p>
             <div class="hero-btns reveal-up">
               <a href="kontakt.html" class="btn-primary hero-btn" data-i18n="p:hero.cta_primary"
@@ -113,20 +114,14 @@ import { Image } from 'astro:assets';
               </div>
             </div>
             <!-- Floating Badges -->
-            <div class="floating-badge badge-1">
-              <div class="badge-icon">📢</div>
-              <div class="badge-text">
-                <h4 data-i18n="p:hero.badge_seo_title">SEO‑spreman sajt</h4>
-                <p data-i18n="p:hero.badge_seo_sub">
-                  Tehnički i sadržajni temelji ugrađeni u build.
-                </p>
-              </div>
-            </div>
+
             <div class="floating-badge badge-2">
               <div class="badge-icon">⚡</div>
               <div class="badge-text">
-                <h4 data-i18n="p:hero.badge_web_title">Isporuka na webu</h4>
-                <p data-i18n="p:hero.badge_web_sub">Dizajn → QA → objava — ceo krug.</p>
+                <h4 data-i18n="p:hero.badge_web_title">Celovita isporuka</h4>
+                <p data-i18n="p:hero.badge_web_sub">
+                  Dizajn → QA → objava — web i mobilno iskustvo.
+                </p>
               </div>
             </div>
           </div>
@@ -141,7 +136,7 @@ import { Image } from 'astro:assets';
             >Šta isporučujemo</span
           >
           <h2 data-i18n="p:services.h2">
-            Celovita izrada sajta — i alati za rast koji prate vašu objavu
+            Prvo web stranice i mobilne aplikacije — glavna SEO tačka; zatim alati za rast
           </h2>
         </div>
 
@@ -659,7 +654,12 @@ import { Image } from 'astro:assets';
                 <span class="g-badge" data-i18n="p:testimonials.mj_badge">2 recenzije</span>
               </div>
             </div>
-            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_5" title="5/5">
+            <div
+              class="g-stars"
+              aria-label="Ocena: 5 od 5 zvezdica"
+              data-i18n-aria="c:reviews.stars_5"
+              title="5/5"
+            >
               <span class="g-star" aria-hidden="true">★</span><span
                 class="g-star"
                 aria-hidden="true">★</span
@@ -681,7 +681,12 @@ import { Image } from 'astro:assets';
                 <span class="g-badge" data-i18n="p:testimonials.as_badge">Prva recenzija</span>
               </div>
             </div>
-            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_5" title="5/5">
+            <div
+              class="g-stars"
+              aria-label="Ocena: 5 od 5 zvezdica"
+              data-i18n-aria="c:reviews.stars_5"
+              title="5/5"
+            >
               <span class="g-star" aria-hidden="true">★</span><span
                 class="g-star"
                 aria-hidden="true">★</span
@@ -703,7 +708,12 @@ import { Image } from 'astro:assets';
                 <span class="g-badge" data-i18n="p:testimonials.fn_badge">5 recenzija</span>
               </div>
             </div>
-            <div class="g-stars" aria-label="" data-i18n-aria="c:reviews.stars_4" title="4/5">
+            <div
+              class="g-stars"
+              aria-label="Ocena: 4 od 5 zvezdica"
+              data-i18n-aria="c:reviews.stars_4"
+              title="4/5"
+            >
               <span class="g-star" aria-hidden="true">★</span><span
                 class="g-star"
                 aria-hidden="true">★</span

@@ -17,7 +17,11 @@ const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary'
 <header id="header" class:list={[headerClass || false]}>
   <div class="container nav-container">
     <a href={homeHref} class="logo">Create<span>WebPlace</span></a>
-    <nav class="desktop-nav">
+    <nav
+      class="desktop-nav"
+      aria-label="Glavna navigacija"
+      data-i18n-aria="c:aria.nav_desktop_label"
+    >
       <ul class="nav-list">
         <li><a href={homeHref} data-i18n="c:nav.home">Početna</a></li>
         <li class="nav-item-dropdown">
@@ -50,6 +54,7 @@ const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary'
         aria-label="Srpski"
         data-i18n-aria="c:aria.lang_switch_sr"
         title="Srpski"
+        data-i18n-title="c:aria.lang_switch_sr"
       >
         <span class="lang-switch__flag" aria-hidden="true">🇷🇸</span>
       </button>
@@ -60,14 +65,19 @@ const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary'
         aria-label="Engleski"
         data-i18n-aria="c:aria.lang_switch_en"
         title="Engleski"
+        data-i18n-title="c:aria.lang_switch_en"
       >
         <span class="lang-switch__flag" aria-hidden="true">🇬🇧</span>
       </button>
     </div>
     <button
       type="button"
+      id="mobile-nav-toggle"
       class="mobile-nav-toggle"
-      aria-label="Menu"
+      aria-controls="mobile-navigation"
+      aria-expanded="false"
+      aria-haspopup="true"
+      aria-label="Menija"
       data-i18n-aria="c:aria.mobile_menu"
     >
       <span class="bar"></span>
@@ -77,8 +87,14 @@ const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary'
   </div>
 </header>
 
-<!-- Mobile Nav Overlay — aktivna stavka samo na desktopu kao u originalu -->
-<div class="mobile-nav-overlay">
+<!-- Mobile Nav — fullscreen panel -->
+<nav
+  id="mobile-navigation"
+  class="mobile-nav-overlay"
+  aria-hidden="true"
+  aria-label="Mobilni meni"
+  data-i18n-aria="c:aria.mobile_nav_panel"
+>
   <ul class="mobile-nav-list">
     <li><a href={homeHref} data-i18n="c:nav.home">Početna</a></li>
     <li class="mobile-dropdown">
@@ -107,4 +123,28 @@ const contactDesktopClass = activeSection === 'contact' ? 'active btn-secondary'
     <li><a href="o-nama.html" data-i18n="c:nav.about">O Nama</a></li>
     <li><a href="kontakt.html" data-i18n="c:nav.contact">Kontakt</a></li>
   </ul>
-</div>
+  <div class="mobile-nav-lang" role="group" data-i18n-aria="c:aria.lang_group">
+    <button
+      type="button"
+      class="lang-switch__btn lang-switch__btn--flag"
+      data-cwp-lang="sr"
+      aria-label="Srpski"
+      data-i18n-aria="c:aria.lang_switch_sr"
+      title="Srpski"
+      data-i18n-title="c:aria.lang_switch_sr"
+    >
+      <span class="lang-switch__flag" aria-hidden="true">🇷🇸</span>
+    </button>
+    <button
+      type="button"
+      class="lang-switch__btn lang-switch__btn--flag"
+      data-cwp-lang="en"
+      aria-label="Engleski"
+      data-i18n-aria="c:aria.lang_switch_en"
+      title="Engleski"
+      data-i18n-title="c:aria.lang_switch_en"
+    >
+      <span class="lang-switch__flag" aria-hidden="true">🇬🇧</span>
+    </button>
+  </div>
+</nav>

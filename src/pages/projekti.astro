@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout
@@ -10,7 +12,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   activeSection={'projects'}
   isHome={false}
 >
-  <main>
+  <main id="main-content">
     <!-- Hero Projekti -->
     <section class="section page-hero">
       <div class="container">
@@ -82,17 +84,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="item-visual item-visual--vet-tile" aria-hidden="true">
-              <div class="vet-tile">
-                <span class="vet-tile-kicker" data-i18n="p:vet_kicker">Pet health</span>
-                <span class="vet-tile-name" data-i18n="p:vet_name_tile">Vet Record</span>
+            <div class="item-visual item-visual--thumb">
+              <div class="portfolio-device-bar">
+                <span class="portfolio-device-bar__url" data-i18n="p:vet_chrome">vetrecord.app</span
+                >
+              </div>
+              <div class="portfolio-thumb">
+                <img
+                  src={`${base}images/portfolio/vet-record-thumb.webp`}
+                  width="1200"
+                  height="750"
+                  alt="Vet Record — sajt za zdravlje ljubimaca"
+                  data-i18n-alt="p:vet_thumb_alt"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
             <div class="item-info">
               <span class="item-category" data-i18n="p:live">LIVE</span>
               <h3 data-i18n="p:vet_title">Vet Record</h3>
               <p data-i18n="p:vet_sub">
-                Pet health tracker — zdravstvena istorija, vakcine, lekovi; iOS i Android.
+                Sajt na vetrecord.app — marketing i predstavljanje brige o zdravlju ljubimaca na
+                webu.
               </p>
             </div>
           </a>
@@ -102,18 +116,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div class="item-visual item-visual--store" aria-hidden="true">
-              <div class="store-tile">
-                <span class="store-tile-badge" data-i18n="p:math_badge">Google Play</span>
-                <span class="store-tile-name" data-i18n="p:math_name">School Math Pro</span>
+            <div class="item-visual item-visual--thumb">
+              <div class="portfolio-device-bar">
+                <span class="portfolio-device-bar__url" data-i18n="p:math_chrome"
+                  >Google Play · School Math Pro</span
+                >
+              </div>
+              <div class="portfolio-thumb">
+                <img
+                  src={`${base}images/portfolio/school-math-thumb.webp`}
+                  width="526"
+                  height="296"
+                  alt="School Math Pro — Android aplikacija, tutor za matematiku"
+                  data-i18n-alt="p:math_thumb_alt"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
             <div class="item-info">
               <span class="item-category" data-i18n="p:app_tag">APP</span>
               <h3 data-i18n="p:math_title">School Math Pro</h3>
               <p data-i18n="p:math_sub">
-                SmartSolution — digitalni tutor, matematika korak po korak, bez reklama i
-                distrakcija.
+                Android aplikacija — digitalni tutor, matematika korak po korak u Google Play‑u, bez
+                nametljivih reklama.
               </p>
             </div>
           </a>

@@ -193,7 +193,7 @@ def main():
             "projekti": {
                 "meta": {
                     "title": "Projects | CreateWebPlace — Portfolio snapshots",
-                    "description": "Live builds spanning renovation, trades, SaaS gateways, veterinary apps and tutoring."
+                    "description": "Live builds: renovation and trades sites, B2B gateways, the Vet Record marketing website and the School Math Pro Android app.",
                 },
                 "subtitle": "Work gallery",
                 "h_html": "Projects <br><span class=\"gradient-text\">that compound</span>",
@@ -203,17 +203,21 @@ def main():
                 "adapt_title": "Apartment renovation",
                 "adapt_sub": "Remix showcase — curated Belgrade retrofit storytelling.",
                 "adapt_iframe": "Site preview: Apartment renovation",
-                "vod_title": "vodoinstalater.store",
+                "vod_title": "vodoinstalater",
                 "vod_sub": "Glass-style landing — emergency trades across Belgrade.",
                 "vod_iframe": "Site preview: Trades storefront",
                 "vet_kicker": "Pet health",
                 "vet_name_tile": "Vet Record",
                 "vet_title": "Vet Record",
-                "vet_sub": "Health timeline, vaccinations and meds · iOS & Android.",
+                "vet_sub": "Marketing website at vetrecord.app — pet health and care on the web.",
+                "vet_chrome": "vetrecord.app",
+                "vet_thumb_alt": "Vet Record marketing website preview",
                 "math_badge": "Google Play",
                 "math_name": "School Math Pro",
                 "math_title": "School Math Pro",
-                "math_sub": "Digital tutor · step-by-step maths without intrusive ads.",
+                "math_sub": "Android app on Google Play — step-by-step maths tutor without intrusive ads.",
+                "math_chrome": "Google Play · School Math Pro",
+                "math_thumb_alt": "School Math Pro — app screenshot (Google Play)",
                 "dc_title": "Direct China Goods",
                 "dc_iframe": "Site preview: Direct China Goods",
                 "dc_sub": "China sourcing gateway — B2B access with trusted routing."

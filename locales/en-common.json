@@ -20,17 +20,24 @@
       "digital_menu": "Digital menu"
     },
     "footer": {
-      "lead": "A studio that designs, builds and launches credible business websites and ecommerce — with performance-minded SEO and post-launch support.",
-      "copyright": "© 2024 CreateWebPlace. All rights reserved.",
+      "lead": "A studio that treats websites and mobile apps as the SEO imperative — design, build, launch, performance‑minded optimisation and post‑launch support.",
+      "copyright": "© 2026 CreateWebPlace. All rights reserved.",
       "nav_heading": "Navigation",
       "services_heading": "Our services",
       "follow_heading": "Follow us",
       "shops": "Web stores",
       "copyright_suffix": ". All rights reserved.",
       "privacy": "Privacy policy",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "privacy_title": "Privacy policy",
+      "privacy_text": "We process contact details from forms solely to respond to your enquiry, in line with applicable law. We do not sell personal data to third parties. To correct or delete your data, use the same contact channel as for your enquiry.",
+      "terms_title": "Terms of use",
+      "terms_text": "Site content is for information only. Prices and timelines are binding only with a written quote or contract. Consumer rights remain unaffected where applicable.",
+      "social_linkedin": "LinkedIn",
+      "social_facebook": "Facebook"
     },
     "modal": {
+      "dialog_title": "Contact",
       "start_talk": "Let’s talk",
       "choose_how": "Choose how you’d like to reach us.",
       "call_now": "Call us now",
@@ -38,7 +45,15 @@
       "back": "← Back",
       "send_title": "Send a message",
       "send_lead": "We’re happy to answer your questions.",
-      "close": "Close"
+      "close": "Close",
+      "tally_note": "Secure Tally form below — submissions go straight to our inbox."
+    },
+    "cookie": {
+      "title": "Cookies on this site",
+      "body": "We use essential cookies so the site works, and optional analytics in line with our privacy policy. You can accept or decline non-essential cookies.",
+      "accept": "Accept",
+      "decline": "Reject non-essential",
+      "learn_more": "Privacy policy"
     },
     "contact_form": {
       "note": "Your message is sent over TLS to our team. We reply within one business day.",
@@ -63,18 +78,27 @@
       "cat_google_maps": "Google Maps / GMB",
       "cat_graficki_dizajn": "Graphic design",
       "cat_digitalni_meni": "Digital menu",
-      "cat_general": "General enquiry / consult"
+      "cat_general": "General enquiry / consult",
+      "ph_name": "e.g. Ana Petrović",
+      "ph_email": "you@company.com",
+      "ph_phone": "+381 …",
+      "ph_message": "Project goals, timelines, budget, links to your site or competitors…"
     },
     "floating": {
       "call": "Call",
-      "contact": "Contact"
+      "contact": "Contact",
+      "viber": "Open Viber chat",
+      "whatsapp": "Open WhatsApp chat"
     },
     "aria": {
+      "skip_main": "Skip to main content",
       "lang_group": "Language selection",
       "lang_switch_sr": "Serbian",
       "lang_switch_en": "English",
       "scroll_top": "Back to top",
-      "mobile_menu": "Menu"
+      "mobile_menu": "Menu",
+      "nav_desktop_label": "Primary navigation",
+      "mobile_nav_panel": "Mobile menu"
     },
     "mq": {
       "seo": "SEO",

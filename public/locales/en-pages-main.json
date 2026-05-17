@@ -2,27 +2,27 @@
   "pages": {
     "index": {
       "meta": {
-        "title": "CreateWebPlace | Professional websites & online stores — design, build, launch",
-        "description": "CreateWebPlace designs and builds fast, credible websites and online stores — from structure and UX to publish, SEO, hosting and integrations. Launch a site that earns enquiries.",
-        "keywords": "website builder agency, professional websites, web design, ecommerce Serbia, Croatia, SEO, hosting"
+        "title": "CreateWebPlace | Websites & mobile apps — your core SEO surface",
+        "description": "Websites and mobile apps are non‑negotiable: they are the main SEO lever for organic demand and enquiries. CreateWebPlace designs, builds and launches sites, shops and mobile experiences — UX, performance, technical SEO, hosting and integrations.",
+        "keywords": "website SEO, mobile app SEO, professional websites, iOS Android apps, web design agency, ecommerce, technical SEO"
       },
       "hero": {
-        "subtitle": "Website design & launch",
-        "h1": "Build a polished website your customers trust — engineered to load fast and convert.",
-        "subline": "We design, develop and publish business sites and shops: clear positioning, credible visuals, measurable performance — not templates that look like everyone else.",
+        "subtitle": "Websites & mobile apps — the SEO imperative",
+        "h1": "Invest in your website and mobile app",
+        "subline": "We design, build and publish business sites, shops and mobile experiences search engines can crawl with confidence — clear positioning, credible craft and measurable performance, not cookie‑cutter templates.",
         "cta_primary": "Start your website brief",
         "cta_outline": "See live websites",
         "img_alt_bg": "Abstract business analytics imagery",
-        "badge_seo_title": "SEO‑ready builds",
-        "badge_seo_sub": "Technical + content foundations baked in.",
-        "badge_web_title": "Web delivery",
-        "badge_web_sub": "Design → QA → publish — end to end.",
+        "badge_seo_title": "SEO core: web + app",
+        "badge_seo_sub": "Owned digital assets that carry rankings — not a one‑off gimmick.",
+        "badge_web_title": "End‑to‑end delivery",
+        "badge_web_sub": "Design → QA → launch — web and mobile experience.",
         "portrait_alt": "Creative professional collaborating on a website launch"
       },
       "iframe_contact": "Contact form — CreateWebPlace",
       "services": {
         "kicker": "What we ship",
-        "h2": "End‑to‑end website creation — and the growth toolkit around it",
+        "h2": "Lead with websites and mobile apps — the main SEO play; then layer growth systems",
         "card1_title": "Custom websites & web platforms",
         "card1_p": "Messaging, UX, visuals and codebase aligned to one goal — a site visitors understand in seconds and search engines can crawl with confidence.",
         "card1_link": "Website & platform scope »",
@@ -199,7 +199,7 @@
     "projekti": {
       "meta": {
         "title": "Projects | CreateWebPlace — Portfolio snapshots",
-        "description": "Live builds spanning renovation, trades, SaaS gateways, veterinary apps and tutoring."
+        "description": "Live builds: renovation and trades sites, B2B gateways, the Vet Record marketing website and the School Math Pro Android app."
       },
       "subtitle": "Work gallery",
       "h_html": "Projects <br><span class=\"gradient-text\">that compound</span>",
@@ -215,11 +215,15 @@
       "vet_kicker": "Pet health",
       "vet_name_tile": "Vet Record",
       "vet_title": "Vet Record",
-      "vet_sub": "Health timeline, vaccinations and meds · iOS & Android.",
+      "vet_sub": "Marketing website at vetrecord.app — pet health and care on the web.",
+      "vet_chrome": "vetrecord.app",
+      "vet_thumb_alt": "Vet Record marketing website preview",
       "math_badge": "Google Play",
       "math_name": "School Math Pro",
       "math_title": "School Math Pro",
-      "math_sub": "Digital tutor · step-by-step maths without intrusive ads.",
+      "math_sub": "Android app on Google Play — step‑by‑step maths tutor without intrusive ads.",
+      "math_chrome": "Google Play · School Math Pro",
+      "math_thumb_alt": "School Math Pro — in-app screenshot (Google Play)",
       "dc_title": "Direct China Goods",
       "dc_iframe": "Site preview: Direct China Goods",
       "dc_sub": "China sourcing gateway — B2B access with trusted routing."

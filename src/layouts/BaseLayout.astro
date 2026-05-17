@@ -57,20 +57,22 @@ const base = import.meta.env.BASE_URL;
     />
     <slot name="head" />
     <link rel="stylesheet" href={`${base}style.css`} />
+    <!-- Same families as typography in public/style.css (avoid duplicate conflicting stacks) -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Rubik:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Rubik:wght@300;400;500;600;700&family=Teko:wght@400;500;600;700&display=swap"
       />
     </noscript>
   </head>
   <body class:list={[bodyClass || false]} id={bodyId || undefined} data-page={dataPage}>
+    <a class="skip-link" href="#main-content" data-i18n="c:aria.skip_main">Preskoči na sadržaj</a>
     {
       showPreloader && (
         <div id="preloader">

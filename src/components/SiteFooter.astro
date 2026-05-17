@@ -1,5 +1,6 @@
 ---
 import ContactForm from './ContactForm.astro';
+import CookieBanner from './CookieBanner.astro';
 
 interface Props {
   isHome: boolean;
@@ -16,8 +17,8 @@ const base = import.meta.env.BASE_URL;
     <div class="footer-info">
       <a href={homeHref} class="logo">Create<span>WebPlace</span></a>
       <p class="footer-desc" data-i18n="c:footer.lead">
-        Tim koji projektuje, građuje i objavljuje poslovne sajtove i web prodavnice — uz
-        performanse, SEO i podršku posle lansiranja.
+        Studio koje web stranice i mobilne aplikacije stavlja u centar SEO‑a — dizajn, izgradnja,
+        lansiranje, optimizacija fokusirana na performanse i podrška posle objave.
       </p>
       <div class="footer-contact-info">
         <p>
@@ -54,18 +55,46 @@ const base = import.meta.env.BASE_URL;
         <a
           href="https://www.linkedin.com/in/dragoslav-ivkovic-104b68383/"
           target="_blank"
-          rel="noopener noreferrer">LinkedIn</a
+          rel="noopener noreferrer"
+          data-i18n="c:footer.social_linkedin">LinkedIn</a
         >
         <a
           href="https://www.facebook.com/people/Izrada-web-sajta-povoljno/61564686248403/"
           target="_blank"
-          rel="noopener noreferrer">Facebook</a
+          rel="noopener noreferrer"
+          data-i18n="c:footer.social_facebook">Facebook</a
         >
       </div>
     </div>
   </div>
+
+  <section id="privacy" class="footer-legal-block" tabindex="-1" aria-labelledby="privacy-heading">
+    <div class="container">
+      <h2 id="privacy-heading" class="footer-legal-block__title" data-i18n="c:footer.privacy_title">
+        Politika privatnosti
+      </h2>
+      <p class="footer-legal-block__text" data-i18n="c:footer.privacy_text">
+        Kontakt podatke iz formulara obrađujemo isključivo radi odgovora na vaš upit, u skladu sa
+        važećim propisima. Ne prodajemo lične podatke trećim licima. Za ispravku ili brisanje
+        podataka pišite na isti kontakt koji koristite za upit.
+      </p>
+    </div>
+  </section>
+
+  <section id="terms" class="footer-legal-block" tabindex="-1" aria-labelledby="terms-heading">
+    <div class="container">
+      <h2 id="terms-heading" class="footer-legal-block__title" data-i18n="c:footer.terms_title">
+        Uslovi korišćenja
+      </h2>
+      <p class="footer-legal-block__text" data-i18n="c:footer.terms_text">
+        Sadržaj sajta ima informativni karakter. Cene i rokovi vezuju tek uz pisanu ponudu ili
+        ugovor. Zakonska prava potrošača ostaju nedirana kada su primenljiva.
+      </p>
+    </div>
+  </section>
+
   <div class="footer-bottom container">
-    <p data-i18n="c:footer.copyright">&copy; 2024 CreateWebPlace. Sva prava zadržana.</p>
+    <p data-i18n="c:footer.copyright">&copy; 2026 CreateWebPlace. Sva prava zadržana.</p>
     <div class="footer-legal">
       <a href="#privacy" data-i18n="c:footer.privacy">Politika Privatnosti</a>
       <a href="#terms" data-i18n="c:footer.terms">Uslovi Korišćenja</a>
@@ -73,11 +102,19 @@ const base = import.meta.env.BASE_URL;
   </div>
 </footer>
 
-<button id="scrollToTop" class="scroll-btn" data-i18n-title="c:aria.scroll_top" title="Back to top"
-  >↑</button
+<button
+  id="scrollToTop"
+  class="scroll-btn"
+  type="button"
+  aria-label="Vrati na vrh strane"
+  data-i18n-aria="c:aria.scroll_top"
+  title="Vrati na vrh strane"
+  data-i18n-title="c:aria.scroll_top"><span class="scroll-btn__icon">↑</span></button
 >
 
-<div class="floating-contact-stack">
+<div class="floating-contact-stack floating-contact-stack--email-only">
+  {
+    /*
   <a
     href="tel:+381111234567"
     class="contact-icon phone"
@@ -96,7 +133,16 @@ const base = import.meta.env.BASE_URL;
       ></path></svg
     >
   </a>
-  <a href="viber://chat?number=%2B381111234567" class="contact-icon viber" aria-label="Viber">
+  */
+  }
+  {
+    /*
+  <a
+    href="viber://chat?number=%2B381111234567"
+    class="contact-icon viber"
+    aria-label="Viber"
+    data-i18n-aria="c:floating.viber"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -114,6 +160,7 @@ const base = import.meta.env.BASE_URL;
     target="_blank"
     rel="noopener noreferrer"
     aria-label="WhatsApp"
+    data-i18n-aria="c:floating.whatsapp"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -126,9 +173,11 @@ const base = import.meta.env.BASE_URL;
       ></path></svg
     >
   </a>
+  */
+  }
   <button
     type="button"
-    class="contact-icon email"
+    class="contact-icon email contact-fab-email"
     id="open-contact-modal"
     data-i18n-aria="c:floating.contact"
     aria-label="Kontakt"
@@ -146,8 +195,24 @@ const base = import.meta.env.BASE_URL;
   </button>
 </div>
 
-<div class="contact-modal-overlay" id="contact-modal-overlay">
+<div
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="contact-modal-heading"
+  id="contact-modal-overlay"
+  class="contact-modal-overlay"
+  aria-hidden="true"
+>
   <div class="contact-modal-content" id="contact-modal-content">
+    <h2 id="contact-modal-heading" class="visually-hidden" data-i18n="c:modal.dialog_title">
+      Kontakt
+    </h2>
+    <button
+      type="button"
+      class="close-modal-btn close-modal-btn--first"
+      id="close-contact-modal"
+      data-i18n="c:modal.close">Zatvori</button
+    >
     <div id="modal-view-options" class="modal-view active">
       <h3 data-i18n="c:modal.start_talk">Započnimo razgovor</h3>
       <p data-i18n="c:modal.choose_how">Izaberite način na koji želite da nas kontaktirate.</p>
@@ -174,12 +239,10 @@ const base = import.meta.env.BASE_URL;
         <ContactForm variant="modal" defaultCategory="general" source="modal-widget" />
       </div>
     </div>
-
-    <button type="button" class="close-modal-btn" id="close-contact-modal" data-i18n="c:modal.close"
-      >Zatvori</button
-    >
   </div>
 </div>
+
+<CookieBanner />
 
 <script src={`${base}i18n.js`} defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>

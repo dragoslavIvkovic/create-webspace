@@ -503,7 +503,7 @@ def mark_projekti(html: str) -> str:
         ),
         (
             '<p>Pet health tracker — zdravstvena istorija, vakcine, lekovi; iOS i Android.</p>',
-            '<p data-i18n="p:vet_sub">Pet health tracker — zdravstvena istorija, vakcine, lekovi; iOS i Android.</p>',
+            '<p data-i18n="p:vet_sub">Sajt na vetrecord.app — marketing i predstavljanje brige o zdravlju ljubimaca na webu.</p>',
         ),
         (
             '<span class="store-tile-badge">Google Play</span>',
@@ -519,7 +519,7 @@ def mark_projekti(html: str) -> str:
         ),
         (
             '<p>SmartSolution — digitalni tutor, matematika korak po korak, bez reklama i distrakcija.</p>',
-            '<p data-i18n="p:math_sub">SmartSolution — digitalni tutor, matematika korak po korak, bez reklama i distrakcija.</p>',
+            '<p data-i18n="p:math_sub">Mobilna aplikacija za Android — tutor za matematiku, korak po korak, bez reklama.</p>',
         ),
         (
             '<iframe src="https://www.directchinagoods.com/" title="Pregled sajta Direct China Goods"',
