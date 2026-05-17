@@ -16,7 +16,8 @@ const schema = z.object({
   category: z.enum(CONTACT_CATEGORY_SLUGS),
   message: z.string().min(10).max(8000).trim(),
   source: z.string().max(120).optional().default(''),
-  company: z.string().max(100).optional().default(''),
+  /** Honeypot — mora ostati prazno (ne koristiti ime koje browser/autofill mapira na posao firmu). */
+  cwp_hp: z.string().max(100).optional().default(''),
 });
 
 function escapeHtml(s: string) {
@@ -29,6 +30,14 @@ function escapeHtml(s: string) {
 
 function nl2br(s: string) {
   return escapeHtml(s).replaceAll('\n', '<br />');
+}
+
+/** Resend expects `email@x` or `Name <email@x>`. Cloudflare vars sometimes drop the trailing `>`. */
+function normalizeResendFrom(from: string): string {
+  const s = from.trim();
+  if (!s) return s;
+  if (s.includes('<') && !s.includes('>')) return `${s}>`;
+  return s;
 }
 
 function buildEmailHtml(payload: z.infer<typeof schema>) {
@@ -87,7 +96,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const input = parsed.data;
-  if (input.company && input.company.trim().length > 0) {
+  if (input.cwp_hp && input.cwp_hp.trim().length > 0) {
     return new Response(JSON.stringify({ ok: true }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
@@ -95,8 +104,8 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const key = import.meta.env.RESEND_API_KEY;
-  const from = import.meta.env.CONTACT_FROM;
-  const to = import.meta.env.CONTACT_TO;
+  const from = normalizeResendFrom(import.meta.env.CONTACT_FROM ?? '');
+  const to = (import.meta.env.CONTACT_TO ?? '').trim();
 
   if (!key || !from || !to) {
     return new Response(JSON.stringify({ ok: false, error: 'Server email not configured' }), {
@@ -127,7 +136,14 @@ export const POST: APIRoute = async ({ request }) => {
   });
 
   if (error) {
-    return new Response(JSON.stringify({ ok: false, error: error.message }), {
+    const message =
+      typeof error === 'object' &&
+      error !== null &&
+      'message' in error &&
+      typeof (error as { message?: unknown }).message === 'string'
+        ? (error as { message: string }).message
+        : 'Resend send failed';
+    return new Response(JSON.stringify({ ok: false, error: message }), {
       status: 502,
       headers: { 'Content-Type': 'application/json' },
     });

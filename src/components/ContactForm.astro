@@ -39,7 +39,12 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
 };
 ---
 
-<div class:list={['cwp-contact', variantClass]} data-cwp-contact>
+<div
+  class:list={['cwp-contact', variantClass]}
+  data-cwp-contact
+  data-api-url={apiUrl}
+  data-default-category={defaultCategory}
+>
   <p class="cwp-contact__note" data-i18n="c:contact_form.note">
     Poruka se šalje direktno na naš tim putem šifrovanog kanala. Odgovaramo radnim danom u roku od
     24h.
@@ -61,7 +66,7 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
   <form id={formId} class="cwp-contact__form" novalidate>
     <input
       type="text"
-      name="company"
+      name="cwp_hp"
       class="cwp-contact__hp"
       tabindex="-1"
       autocomplete="off"
@@ -176,93 +181,3 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
     </div>
   </form>
 </div>
-
-<script is:inline define:vars={{ apiUrl, formId, defaultCategory }}>
-  (function () {
-    const form = document.getElementById(formId);
-    if (!form || !(form instanceof HTMLFormElement)) return;
-    const statusEl = document.getElementById(formId + '-status');
-    const sendingEl = document.getElementById(formId + '-sending');
-    const submitBtn = form.querySelector('.cwp-contact__submit');
-    const elOk = document.getElementById(formId + '-str-ok');
-    const elErr = document.getElementById(formId + '-str-err');
-    const elVal = document.getElementById(formId + '-str-val');
-
-    function txt(el) {
-      return (el && el.textContent) || '';
-    }
-
-    function showStatus(kind, message) {
-      if (!statusEl) return;
-      statusEl.textContent = message;
-      statusEl.className = 'cwp-contact__status';
-      if (kind === 'ok') statusEl.classList.add('cwp-contact__status--ok');
-      else if (kind === 'error') statusEl.classList.add('cwp-contact__status--error');
-      statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!statusEl || !sendingEl || !submitBtn) return;
-      statusEl.textContent = '';
-      statusEl.className = 'cwp-contact__status';
-
-      const fd = new FormData(form);
-      const company = String(fd.get('company') || '');
-      const payload = {
-        name: String(fd.get('name') || '').trim(),
-        email: String(fd.get('email') || '').trim(),
-        phone: String(fd.get('phone') || '').trim(),
-        category: String(fd.get('category') || ''),
-        message: String(fd.get('message') || '').trim(),
-        source: String(fd.get('source') || '').trim(),
-        company,
-      };
-
-      if (!payload.name || !payload.email || !payload.category || payload.message.length < 10) {
-        showStatus('error', txt(elVal));
-        return;
-      }
-
-      submitBtn.setAttribute('disabled', 'disabled');
-      sendingEl.hidden = false;
-
-      try {
-        const res = await fetch(apiUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data.ok) {
-          form.reset();
-          const sel = form.querySelector('[name="category"]');
-          if (sel instanceof HTMLSelectElement) sel.value = defaultCategory;
-          try {
-            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
-          } catch {
-            void 0;
-          }
-          showStatus('ok', txt(elOk));
-        } else {
-          try {
-            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
-          } catch {
-            void 0;
-          }
-          showStatus('error', data.error === 'validation' ? txt(elVal) : txt(elErr));
-        }
-      } catch {
-        try {
-          if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
-        } catch {
-          void 0;
-        }
-        showStatus('error', txt(elErr));
-      } finally {
-        submitBtn.removeAttribute('disabled');
-        sendingEl.hidden = true;
-      }
-    });
-  })();
-</script>

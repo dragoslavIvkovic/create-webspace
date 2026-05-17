@@ -1,4 +1,121 @@
 /**
+ * SPA (webplaceLoadPage) ubacuje body preko importNode — <script> u tom HTML-u se ne izvršava.
+ * Submit handler mora biti ovde i ponovo se veže u svakom initWebPlacePage() preko AbortSignal-a.
+ *
+ * @param {AbortSignal} signal
+ */
+function initCwpContactForms(signal) {
+  document.body.addEventListener(
+    'submit',
+    async (e) => {
+      const form = e.target;
+      if (!(form instanceof HTMLFormElement)) return;
+      if (!form.classList.contains('cwp-contact__form')) return;
+      const root = form.closest('[data-cwp-contact]');
+      if (!root) return;
+
+      e.preventDefault();
+
+      const apiUrl = root.getAttribute('data-api-url') || '/api/contact';
+      const defaultCategory = root.getAttribute('data-default-category') || 'general';
+      const formId = form.id;
+
+      const statusEl = document.getElementById(`${formId}-status`);
+      const sendingEl = document.getElementById(`${formId}-sending`);
+      const submitBtn = form.querySelector('.cwp-contact__submit');
+      const elOk = document.getElementById(`${formId}-str-ok`);
+      const elErr = document.getElementById(`${formId}-str-err`);
+      const elVal = document.getElementById(`${formId}-str-val`);
+
+      /** @param {Element | null} el */
+      const txt = (el) => (el && el.textContent) || '';
+
+      /** @param {'ok'|'error'} kind */
+      const showStatus = (kind, message) => {
+        if (!statusEl) return;
+        statusEl.textContent = message;
+        statusEl.className = 'cwp-contact__status';
+        if (kind === 'ok') statusEl.classList.add('cwp-contact__status--ok');
+        else if (kind === 'error') statusEl.classList.add('cwp-contact__status--error');
+        statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+
+      if (!statusEl || !sendingEl || !submitBtn) return;
+
+      statusEl.textContent = '';
+      statusEl.className = 'cwp-contact__status';
+
+      const fd = new FormData(form);
+      const cwp_hp = String(fd.get('cwp_hp') || '');
+      const payload = {
+        name: String(fd.get('name') || '').trim(),
+        email: String(fd.get('email') || '').trim(),
+        phone: String(fd.get('phone') || '').trim(),
+        category: String(fd.get('category') || ''),
+        message: String(fd.get('message') || '').trim(),
+        source: String(fd.get('source') || '').trim(),
+        cwp_hp,
+      };
+
+      if (!payload.name || !payload.email || !payload.category || payload.message.length < 10) {
+        showStatus('error', txt(elVal));
+        return;
+      }
+
+      submitBtn.setAttribute('disabled', 'disabled');
+      sendingEl.hidden = false;
+
+      try {
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) {
+          form.reset();
+          const sel = form.querySelector('[name="category"]');
+          if (sel instanceof HTMLSelectElement) sel.value = defaultCategory;
+          try {
+            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
+          } catch (_) {
+            //
+          }
+          showStatus('ok', txt(elOk));
+        } else {
+          try {
+            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
+          } catch (_) {
+            //
+          }
+          let errMsg = data.error === 'validation' ? txt(elVal) : txt(elErr);
+          if (
+            data.error !== 'validation' &&
+            typeof data.error === 'string' &&
+            data.error.trim().length > 0
+          ) {
+            const detail = data.error.trim().slice(0, 400);
+            errMsg = `${txt(elErr)} (${detail})`;
+          }
+          showStatus('error', errMsg);
+        }
+      } catch (_) {
+        try {
+          if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
+        } catch (_e) {
+          //
+        }
+        showStatus('error', txt(elErr));
+      } finally {
+        submitBtn.removeAttribute('disabled');
+        sendingEl.hidden = true;
+      }
+    },
+    { capture: true, signal },
+  );
+}
+
+/**
  * Javna inicijalizacija nakon učitavanja ili nakon klijentske navigacije (SPA-lite).
  * Poziva se u DOMContentLoaded, posle zamenjivanog body-ja, i sync ako je DOM već spreman.
  */
@@ -6,6 +123,8 @@ function initWebPlacePage() {
   if (window.__NEON_AC) window.__NEON_AC.abort();
   window.__NEON_AC = new AbortController();
   const ac = window.__NEON_AC.signal;
+
+  initCwpContactForms(ac);
 
   if (window.__NEON_PRELOADER_INT) {
     clearInterval(window.__NEON_PRELOADER_INT);
