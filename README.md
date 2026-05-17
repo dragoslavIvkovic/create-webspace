@@ -8,14 +8,21 @@
 npm install
 npm run dev
 npm run build
-npm run build && npm run preview:cf   # Worker + assets (koristi poslednji build)
+npm run build && npm run preview:cf   # lokalni Worker (koristi poslednji build)
+npm run build && npm run deploy:cf   # produkcija (Wrangler upload)
 ```
 
 ## Cloudflare (Wrangler)
 
-- Konfiguracija: **`wrangler.jsonc`** (kompatibilnost, `nodejs_compat`, assets iz `dist/`).
-- Astro posle **`npm run build`** generiše i `dist/server/wrangler.json`; `wrangler deploy` koristi spojenu konfiguraciju.
-- **Workers Builds** (ili CI): npr. build `npx astro build`, deploy `npx wrangler deploy`.
+Zvanični tok: [Deploy your Astro Site to Cloudflare](https://docs.astro.build/en/guides/deploy/cloudflare/) i [Astro na Workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/). Oba koriste **Workers** + **`npx astro build`** zatim **`npx wrangler deploy`** (u CI: odvojene _Build_ i _Deploy_ komande).
+
+Napomena: u Cloudflare vodiču za SSR još uvek stoji `main: ./dist/_worker.js/index.js`. Kod **`@astrojs/cloudflare` v13+** (Astro 6) adapter posle builda generiše **`dist/server/entry.mjs`** i **`dist/server/wrangler.json`** — ne dodaje se ručno `main` u korenskom `wrangler.jsonc`; Wrangler pri deployu koristi spojenu konfiguraciju.
+
+- Konfiguracija: **`wrangler.jsonc`** — mora biti **validan JSON** (bez završnih zareza na poslednjem polju u objektu). Posebno strogi parseri (npr. Wrangler na starijem Pages build alatu) inače javljaju `ParseError: PropertyNameExpected`.
+- **`public/.assetsignore`**: po Cloudflare upustvu (`_worker.js`, `_routes.json`) da se ti artefakti ne tretiraju kao statički asset ako se pojave u izlazu.
+- Astro posle **`npm run build`** generiše `dist/client/` (assets), `dist/server/` (Worker) i `dist/server/wrangler.json`; pravi deploy je **`npx wrangler deploy`**, koji spaja tvoj `wrangler.jsonc` sa generisanom konfiguracijom.
+- **Workers Builds** (preporuka iz [Astro deploy](https://docs.astro.build/en/guides/deploy/cloudflare/)): _Build command_ `npx astro build`, _Deploy command_ `npx wrangler deploy`. Bez deploy koraka Cloudflare **objavi samo statičke fajlove** (nema `POST /api/contact` ni SSR handlera).
+- Lokalno pun tok: `npm run build && npm run deploy:cf` (vidi `package.json`).
 
 ## Kontakt forma i Resend
 
