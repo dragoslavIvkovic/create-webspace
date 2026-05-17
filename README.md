@@ -14,15 +14,30 @@ npm run build && npm run deploy:cf   # produkcija (Wrangler upload)
 
 ## Cloudflare (Wrangler)
 
-Zvanični tok: [Deploy your Astro Site to Cloudflare](https://docs.astro.build/en/guides/deploy/cloudflare/) i [Astro na Workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/). Oba koriste **Workers** + **`npx astro build`** zatim **`npx wrangler deploy`** (u CI: odvojene _Build_ i _Deploy_ komande).
+Izvor istine za Astro + Workers (build → deploy) je Cloudflare vodič: **[Astro na Workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)**. Tamo za **on-demand / SSR** stoji:
 
-Napomena: u Cloudflare vodiču za SSR još uvek stoji `main: ./dist/_worker.js/index.js`. Kod **`@astrojs/cloudflare` v13+** (Astro 6) adapter posle builda generiše **`dist/server/entry.mjs`** i **`dist/server/wrangler.json`** — ne dodaje se ručno `main` u korenskom `wrangler.jsonc`; Wrangler pri deployu koristi spojenu konfiguraciju.
+1. Adapter `@astrojs/cloudflare`
+2. **`public/.assetsignore`** sa `_worker.js` i `_routes.json`
+3. Wrangler sa `compatibility_flags: ["nodejs_compat"]`, **`assets`** (`binding` + **`directory`** — mora da pokazuje na folder sa statikom), **`observability`**, po želji **`not_found_handling`: `404-page`** ([custom 404](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/#custom-404-pages))
+4. **`npx astro build`** pa **`npx wrangler deploy`** (ili [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/#workers-builds): build + deploy komande)
 
-- Konfiguracija: **`wrangler.jsonc`** — mora biti **validan JSON** (bez završnih zareza na poslednjem polju u objektu). Posebno strogi parseri (npr. Wrangler na starijem Pages build alatu) inače javljaju `ParseError: PropertyNameExpected`.
-- **`public/.assetsignore`**: po Cloudflare upustvu (`_worker.js`, `_routes.json`) da se ti artefakti ne tretiraju kao statički asset ako se pojave u izlazu.
-- Astro posle **`npm run build`** generiše `dist/client/` (assets), `dist/server/` (Worker) i `dist/server/wrangler.json`; pravi deploy je **`npx wrangler deploy`**, koji spaja tvoj `wrangler.jsonc` sa generisanom konfiguracijom.
-- **Workers Builds** (preporuka iz [Astro deploy](https://docs.astro.build/en/guides/deploy/cloudflare/)): _Build command_ `npx astro build`, _Deploy command_ `npx wrangler deploy`. Bez deploy koraka Cloudflare **objavi samo statičke fajlove** (nema `POST /api/contact` ni SSR handlera).
-- Lokalno pun tok: `npm run build && npm run deploy:cf` (vidi `package.json`).
+**Razlika u odnosu na primer u tom članku:** dokumentacija još koristi `main: ./dist/_worker.js/index.js` i `assets.directory: ./dist`. Kod **Astro 6 / `@astrojs/cloudflare` v13+** statika je u **`dist/client/`**, zato je ovde **`assets.directory`**: `"./dist/client"`. Polje **`main` se ne duplira u `wrangler.jsonc`**: ako ga dodamo kao `./dist/server/entry.mjs`, **`astro build` pada** jer Vite proverava `main` pre nego što se `entry.mjs` generiše. Ulaz Workera i dalje dolazi iz spoja sa **`dist/server/wrangler.json`** posle builda (to radi `wrangler deploy`).
+
+### Cloudflare Pages (Build command: `npm run build`)
+
+Ako u dashboardu koristiš **samo** build bez `wrangler deploy`, obavezno podesi **Build output directory** na **`dist/client`**, ne na `dist`. Adapter `@astrojs/cloudflare` stavlja `index.html` i statiku u `dist/client/`; ako Pages objavi koren `dist/`, korena stranica je **404**.
+
+Upozorenje u logu tipa _Wrangler configuration file was found but it does not appear to be valid … `pages_build_output_dir`_ je normalno: `wrangler.jsonc` ovde je namenjen **Worker** deployu, ne „čistom“ Pages manifestu. Dok god je u UI-ju izlaz **`dist/client`**, statički sajt će biti ispravan.
+
+**Nemoj** dodavati `pages_build_output_dir` u `wrangler.jsonc` samo da ućutkaš tu poruku: pri `astro build` Wrangler onda tretira projekat kao Pages i prijavi grešku da je ime **`ASSETS`** rezervisano za Pages (_The name 'ASSETS' is reserved in Pages projects_).
+
+Na čistom Pages deployu bez Workera **`POST /api/contact` neće raditi** — za to treba **Workers Builds** sa _Deploy command_ `npx wrangler deploy` ili zaseban Worker projekat.
+
+### Repo (kratko)
+
+- **`wrangler.jsonc`**: validan JSON (bez završnih zareza u objektu); usklađeno sa [manual SSR delom](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/#if-your-site-uses-on-demand-rendering) uz **`assets.directory` → `./dist/client`**.
+- **`public/.assetsignore`**: linije iz vodiča (`_worker.js`, `_routes.json`).
+- **Astro deploy** (pored Cloudflare): [Deploy your Astro Site to Cloudflare](https://docs.astro.build/en/guides/deploy/cloudflare/).
 
 ## Kontakt forma i Resend
 
