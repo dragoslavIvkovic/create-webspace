@@ -55,7 +55,8 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
     >Proverite označena polja.</span
   >
 
-  <div class="cwp-contact__status" id={`${formId}-status`} role="status" aria-live="polite"></div>
+  <div class="cwp-contact__status" id={`${formId}-status`} role="status" aria-live="assertive">
+  </div>
 
   <form id={formId} class="cwp-contact__form" novalidate>
     <input
@@ -191,6 +192,15 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
       return (el && el.textContent) || '';
     }
 
+    function showStatus(kind, message) {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.className = 'cwp-contact__status';
+      if (kind === 'ok') statusEl.classList.add('cwp-contact__status--ok');
+      else if (kind === 'error') statusEl.classList.add('cwp-contact__status--error');
+      statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!statusEl || !sendingEl || !submitBtn) return;
@@ -210,8 +220,7 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
       };
 
       if (!payload.name || !payload.email || !payload.category || payload.message.length < 10) {
-        statusEl.textContent = txt(elVal);
-        statusEl.classList.add('cwp-contact__status--error');
+        showStatus('error', txt(elVal));
         return;
       }
 
@@ -226,27 +235,33 @@ const defaultLabels: Record<ContactCategorySlug, string> = {
         });
         const data = await res.json().catch(() => ({}));
         if (res.ok && data.ok) {
-          statusEl.textContent = txt(elOk);
-          statusEl.classList.add('cwp-contact__status--ok');
           form.reset();
           const sel = form.querySelector('[name="category"]');
           if (sel instanceof HTMLSelectElement) sel.value = defaultCategory;
+          try {
+            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
+          } catch {
+            void 0;
+          }
+          showStatus('ok', txt(elOk));
         } else {
-          statusEl.textContent = data.error === 'validation' ? txt(elVal) : txt(elErr);
-          statusEl.classList.add('cwp-contact__status--error');
+          try {
+            if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
+          } catch {
+            void 0;
+          }
+          showStatus('error', data.error === 'validation' ? txt(elVal) : txt(elErr));
         }
       } catch {
-        statusEl.textContent = txt(elErr);
-        statusEl.classList.add('cwp-contact__status--error');
-      } finally {
-        submitBtn.removeAttribute('disabled');
-        sendingEl.hidden = true;
         try {
           if (typeof window.__cwpRefreshI18n === 'function') window.__cwpRefreshI18n();
         } catch {
-          // i18n hook optional
           void 0;
         }
+        showStatus('error', txt(elErr));
+      } finally {
+        submitBtn.removeAttribute('disabled');
+        sendingEl.hidden = true;
       }
     });
   })();

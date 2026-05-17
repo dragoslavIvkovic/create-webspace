@@ -2640,8 +2640,11 @@ img {
 
 .cwp-contact__status--ok {
   color: #0f766e;
-  background: rgba(20, 184, 166, 0.12);
-  border: 1px solid rgba(20, 184, 166, 0.35);
+  background: rgba(20, 184, 166, 0.18);
+  border: 1px solid rgba(15, 118, 110, 0.45);
+  font-size: 1rem;
+  line-height: 1.45;
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.15);
 }
 
 .cwp-contact__status--error {

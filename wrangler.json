@@ -1,7 +1,11 @@
 {
-  "name": "createwebplace-site",
+  "name": "create-webspace",
   "compatibility_date": "2025-10-08",
   "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "CONTACT_FROM": "CreateWebPlace <brief@createwebplace.rs>",
+    "CONTACT_TO": "dragoslav.m.ivkovic@gmail.com"
+  },
   "observability": {
     "enabled": true
   },
