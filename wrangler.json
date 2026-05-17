@@ -1,0 +1,9 @@
+{
+  "name": "createwebplace-site",
+  "compatibility_date": "2025-10-08",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true
+}

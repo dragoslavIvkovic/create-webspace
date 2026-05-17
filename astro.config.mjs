@@ -2,11 +2,15 @@
 import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config — Cloudflare Workers + static assets (full-stack deploy)
+// https://astro.build/config
 export default defineConfig({
   site: 'https://createwebplace.rs',
   adapter: cloudflare({
-    platformProxy: { enabled: true },
+    platformProxy: {
+      enabled: true,
+    },
+    // Compile-time image optimization — avoids requiring Cloudflare Images (IMAGES binding) in prod.
+    imageService: 'compile',
   }),
   compressHTML: true,
   build: {

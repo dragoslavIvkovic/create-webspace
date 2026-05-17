@@ -1,6 +1,7 @@
 node_modules/
 build/
 dist/
+.wrangler/
 .astro/
 coverage/
 .DS_Store
@@ -9,9 +10,6 @@ coverage/
 .env.local
 .dev.vars
 __pycache__/
-
-# Wrangler lokalno stanje
-.wrangler/
 
 # Kopija od scripts/sync-public.mjs (npm predev / prebuild)
 public/locales/
