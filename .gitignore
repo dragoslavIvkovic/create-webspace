@@ -7,7 +7,11 @@ coverage/
 *.log
 .env
 .env.local
+.dev.vars
 __pycache__/
+
+# Wrangler lokalno stanje
+.wrangler/
 
 # Kopija od scripts/sync-public.mjs (npm predev / prebuild)
 public/locales/

@@ -1,6 +1,6 @@
 # CreateWebPlace — sajt (Astro)
 
-Statički prikaz stranica + **Node server** za API (kontakt forma → [Resend](https://resend.com/docs/send-with-astro)).
+**Cloudflare Workers** (`@astrojs/cloudflare`) + statički assets; kontakt forma šalje mejl preko [Resend](https://resend.com/docs/send-with-astro) (`POST /api/contact`).
 
 ## Komande
 
@@ -8,28 +8,24 @@ Statički prikaz stranica + **Node server** za API (kontakt forma → [Resend](h
 npm install
 npm run dev
 npm run build
-npm run preview   # lokalno testiranje SSR + statike kao u produkciji
+npm run build && npm run preview:cf   # Worker + assets (koristi poslednji build)
 ```
+
+## Cloudflare (Wrangler)
+
+- Konfiguracija: **`wrangler.jsonc`** (kompatibilnost, `nodejs_compat`, assets iz `dist/`).
+- Astro posle **`npm run build`** generiše i `dist/server/wrangler.json`; `wrangler deploy` koristi spojenu konfiguraciju.
+- **Workers Builds** (ili CI): npr. build `npx astro build`, deploy `npx wrangler deploy`.
 
 ## Kontakt forma i Resend
 
-1. Registruj se na [Resend](https://resend.com), kreiraj API ključ i verifikuj domen za **from** adresu.
-2. Kopiraj `.env.example` u `.env` i popuni:
-
-- `RESEND_API_KEY` — API ključ
-- `CONTACT_FROM` — npr. `CreateWebPlace <brief@tvoj-domen.rs>` (mora biti sa verifikovanog domena)
-- `CONTACT_TO` — adresa na koju stižu upiti
-
-3. U produkciji mora da radi **Node proces** (ne čist statički CDN bez proxy-ja), npr.:
-
-```bash
-node dist/server/entry.mjs
-```
-
-Statički fajlovi su u `dist/client/`; server ih servira zajedno sa rutom **`POST /api/contact`**.
+1. Resend: API ključ i verifikovan domen za **from**.
+2. **Lokalno sa Astro dev:** kopiraj `.env.example` u `.env` i popuni `RESEND_API_KEY`, `CONTACT_FROM`, `CONTACT_TO`.
+3. **Lokalno sa Wrangler:** iste promenljive u **`.dev.vars`** (Wrangler ne čita `.env` za Worker).
+4. **Produkcija:** u Cloudflare dashboardu pod Workerom (**Settings → Variables**) ili `npx wrangler secret put RESEND_API_KEY` itd. za osetljive vrednosti; `CONTACT_FROM` / `CONTACT_TO` mogu biti kao obične varijable ako nisu tajne.
 
 ## Ostalo
 
 `locales/` se pri `npm run dev` / `npm run build` kopira u `public/locales/` (ta fascikla je u `.gitignore`; posle klona uradi `npm install` pa `npm run dev` ili `npm run build` da se JSON ponovo iskopira).
 
-Početna koristi optimizaciju slika (`astro:assets`). `astro.config.mjs`: `build.format: 'file'` (npr. `kontakt.html`).
+Početna koristi `astro:assets` sa udaljenim slikama (`images.unsplash.com`); adapter koristi Cloudflare Images binding u produkciji.

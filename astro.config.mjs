@@ -1,11 +1,13 @@
 // @ts-check
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
+// https://astro.build/config — Cloudflare Workers + static assets (full-stack deploy)
 export default defineConfig({
   site: 'https://createwebplace.rs',
-  adapter: node({ mode: 'standalone' }),
+  adapter: cloudflare({
+    platformProxy: { enabled: true },
+  }),
   compressHTML: true,
   build: {
     format: 'file',

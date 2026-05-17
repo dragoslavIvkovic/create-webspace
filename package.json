@@ -9,6 +9,7 @@
     "prebuild": "node scripts/sync-public.mjs",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:cf": "wrangler dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
@@ -16,13 +17,12 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@astrojs/node": "^10.1.1",
     "astro": "^6.3.3",
     "resend": "^6.12.3",
-    "sharp": "^0.34.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@astrojs/cloudflare": "^13.5.1",
     "@eslint/js": "^9.39.1",
     "eslint": "^9.39.1",
     "eslint-plugin-astro": "^1.7.0",
@@ -34,7 +34,8 @@
     "prettier": "^3.8.3",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.59.3"
+    "typescript-eslint": "^8.59.3",
+    "wrangler": "^4.92.0"
   },
   "lint-staged": {
     "*.{js,cjs,mjs,ts,astro}": [
