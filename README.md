@@ -27,7 +27,7 @@ Slike sa početne koriste **compile-time** optimizaciju (`imageService: 'compile
 3. Za **`wrangler dev`** / produkciju na Workers: iste promenljive stavi u **`.dev.vars`** (lokalno, ne commituj) ili u Cloudflare dashboard → Worker → **Variables** i **Secrets**:
 
 - `RESEND_API_KEY` — tretiraj kao **Secret**
-- `CONTACT_FROM` — npr. `CreateWebPlace <brief@tvoj-domen.rs>`
+- `CONTACT_FROM` — npr. `brief@createwebplace.com` (mora biti verifikovan domen u Resend-u)
 - `CONTACT_TO` — adresa za prijem upita
 
 ## Ostalo

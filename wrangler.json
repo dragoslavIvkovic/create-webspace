@@ -3,7 +3,7 @@
   "compatibility_date": "2025-10-08",
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    "CONTACT_FROM": "brief@createwebplace.rs",
+    "CONTACT_FROM": "brief@createwebplace.com",
     "CONTACT_TO": "dragoslav.m.ivkovic@gmail.com"
   },
   "observability": {

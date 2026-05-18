@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://createwebplace.rs/sitemap.xml
+Sitemap: https://createwebplace.com/sitemap.xml

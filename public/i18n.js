@@ -100,6 +100,7 @@
 
     return fetch('https://ipwho.is/', { signal: ctrl.signal })
       .then(function (r) {
+        if (!r.ok) throw new Error('ipwho_http_' + r.status);
         return r.json();
       })
       .then(function (d) {

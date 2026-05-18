@@ -32,6 +32,25 @@ function nl2br(s: string) {
   return escapeHtml(s).replaceAll('\n', '<br />');
 }
 
+/** Cloudflare / paste greške često ubace novi red posle @ → Resend dobije "brief@\n". */
+function sanitizeWorkerEnvString(s: string): string {
+  return s
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .join('')
+    .trim();
+}
+
+/** Resend expects `email@domain.tld` ili `Ime <email@domain.tld>`. */
+function isPlausibleResendFrom(from: string): boolean {
+  const t = from.trim();
+  if (!t) return false;
+  const plain = /^[^\s<>"']+@[^\s<>"']+\.[^\s<>"']+$/;
+  if (plain.test(t)) return true;
+  return /^[^\n<>]+<[^\s<>]+@[^\s<>]+\.[^\s<>]+>$/.test(t);
+}
+
 /** Resend expects `email@x` or `Name <email@x>`. Cloudflare vars sometimes drop the trailing `>`. */
 function normalizeResendFrom(from: string): string {
   const s = from.trim();
@@ -104,14 +123,26 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const key = import.meta.env.RESEND_API_KEY;
-  const from = normalizeResendFrom(import.meta.env.CONTACT_FROM ?? '');
-  const to = (import.meta.env.CONTACT_TO ?? '').trim();
+  const fromRaw = sanitizeWorkerEnvString(import.meta.env.CONTACT_FROM ?? '');
+  const from = normalizeResendFrom(fromRaw);
+  const to = sanitizeWorkerEnvString(import.meta.env.CONTACT_TO ?? '');
 
   if (!key || !from || !to) {
     return new Response(JSON.stringify({ ok: false, error: 'Server email not configured' }), {
       status: 503,
       headers: { 'Content-Type': 'application/json' },
     });
+  }
+
+  if (!isPlausibleResendFrom(from)) {
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error:
+          'CONTACT_FROM is invalid or truncated in Worker variables (expect brief@your-verified-domain).',
+      }),
+      { status: 503, headers: { 'Content-Type': 'application/json' } },
+    );
   }
 
   const resend = new Resend(key);

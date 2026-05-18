@@ -4,7 +4,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://createwebplace.rs',
+  site: 'https://createwebplace.com',
   adapter: cloudflare({
     platformProxy: {
       enabled: true,
