@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env as cfWorkerEnv } from 'cloudflare:workers';
 import { Resend } from 'resend';
 import { z } from 'zod';
 import {
@@ -8,6 +9,19 @@ import {
 } from '../../lib/contact-categories';
 
 export const prerender = false;
+
+type ContactEnvKey = 'RESEND_API_KEY' | 'CONTACT_FROM' | 'CONTACT_TO';
+
+/**
+ * Vars i secrets iz Wrangler-a / Cloudflare dashboard-a žive u Worker `env`
+ * (`cloudflare:workers`), ne u `import.meta.env` — zato je kontakt u produkciji „pucao“ iako je CONTACT_FROM bio podešen.
+ */
+function workerEnvString(key: ContactEnvKey): string {
+  const raw = cfWorkerEnv[key];
+  if (typeof raw === 'string' && raw.length > 0) return raw;
+  const vite = import.meta.env[key];
+  return typeof vite === 'string' ? vite : '';
+}
 
 const schema = z.object({
   name: z.string().min(2).max(120).trim(),
@@ -32,9 +46,11 @@ function nl2br(s: string) {
   return escapeHtml(s).replaceAll('\n', '<br />');
 }
 
-/** Cloudflare / paste greške često ubace novi red posle @ → Resend dobije "brief@\n". */
+/** Uklanja BOM / „pametne“ navodnike koje Cloudflare UI često ubaci u Variables. */
 function sanitizeWorkerEnvString(s: string): string {
   return s
+    .replace(/^\uFEFF/, '')
+    .replace(/[\u201c\u201d\u2018\u2019]/g, '')
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean)
@@ -42,13 +58,20 @@ function sanitizeWorkerEnvString(s: string): string {
     .trim();
 }
 
-/** Resend expects `email@domain.tld` ili `Ime <email@domain.tld>`. */
+/**
+ * Provera da li je `from` za Resend bar približno ispravan (običan email ili `Ime <email>`).
+ * Koristi Zod umesto ručnog regexa — prethodni regex je odbijao neke validne varijante.
+ */
 function isPlausibleResendFrom(from: string): boolean {
   const t = from.trim();
   if (!t) return false;
-  const plain = /^[^\s<>"']+@[^\s<>"']+\.[^\s<>"']+$/;
-  if (plain.test(t)) return true;
-  return /^[^\n<>]+<[^\s<>]+@[^\s<>]+\.[^\s<>]+>$/.test(t);
+  let candidate = t;
+  const lt = t.indexOf('<');
+  const gt = t.lastIndexOf('>');
+  if (lt !== -1 && gt > lt) {
+    candidate = t.slice(lt + 1, gt).trim();
+  }
+  return z.string().email().safeParse(candidate).success;
 }
 
 /** Resend expects `email@x` or `Name <email@x>`. Cloudflare vars sometimes drop the trailing `>`. */
@@ -122,10 +145,10 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  const key = import.meta.env.RESEND_API_KEY;
-  const fromRaw = sanitizeWorkerEnvString(import.meta.env.CONTACT_FROM ?? '');
+  const key = workerEnvString('RESEND_API_KEY');
+  const fromRaw = sanitizeWorkerEnvString(workerEnvString('CONTACT_FROM'));
   const from = normalizeResendFrom(fromRaw);
-  const to = sanitizeWorkerEnvString(import.meta.env.CONTACT_TO ?? '');
+  const to = sanitizeWorkerEnvString(workerEnvString('CONTACT_TO'));
 
   if (!key || !from || !to) {
     return new Response(JSON.stringify({ ok: false, error: 'Server email not configured' }), {
@@ -139,7 +162,7 @@ export const POST: APIRoute = async ({ request }) => {
       JSON.stringify({
         ok: false,
         error:
-          'CONTACT_FROM is invalid or truncated in Worker variables (expect brief@your-verified-domain).',
+          'Pošiljalac (CONTACT_FROM) nije ispravan ili nedostaje u Cloudflare Worker Variables. Proveri da piše npr. brief@createwebplace.com u jednoj liniji.',
       }),
       { status: 503, headers: { 'Content-Type': 'application/json' } },
     );

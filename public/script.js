@@ -1066,8 +1066,12 @@ if (!window.__NEON_SPA) {
 }
 
 async function webplaceBoot() {
-  if (typeof window.initCwpI18n === 'function') {
-    await window.initCwpI18n();
+  try {
+    if (typeof window.initCwpI18n === 'function') {
+      await window.initCwpI18n();
+    }
+  } catch (err) {
+    console.error('[CreateWebPlace] initCwpI18n failed:', err);
   }
   initWebPlacePage();
 }

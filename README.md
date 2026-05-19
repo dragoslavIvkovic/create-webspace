@@ -14,7 +14,9 @@ npm run deploy    # wrangler deploy (potreban nalog Cloudflare + auth)
 
 ## Cloudflare / Wrangler
 
-Projekat koristi **`@astrojs/cloudflare`** i **`wrangler.json`** (isti obrazac kao [create-webspace](https://github.com/dragoslavIvkovic/create-webspace)): posle `astro build` Wrangler koristi generisanu konfiguraciju u `dist/server/wrangler.json` (Worker ulaz + statički `dist/client` kao Assets).
+Projekat koristi **`@astrojs/cloudflare`** i **`wrangler.json`**: posle `astro build` Wrangler koristi generisanu konfiguraciju u `dist/server/wrangler.json` (Worker ulaz + statički `dist/client` kao Assets).
+
+**Važno:** polje **`name`** u `wrangler.json` mora da se poklapa sa Worker-om na koji je vezan custom domen u Cloudflare-u (ovde **`create-webspace-web`**). Ako deploy-uješ pod drugim imenom, domen i dalje pokazuje na stari Worker — sajt „ne otvara“ ili ostaje stariji projekat.
 
 Na prvom deploy-u Wrangler će ponuditi kreiranje **KV** namespace-a za Astro sesije (`SESSION` binding).
 
